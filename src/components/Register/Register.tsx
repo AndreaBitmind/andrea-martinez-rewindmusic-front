@@ -18,7 +18,7 @@ export const Register = () => {
           required
           autoComplete="off"
         />
-        <Button buttonText="Sign up!" />
+        <Button className="submit-big" type="submit" buttonText="Sign up!" />
       </form>
     </RegisterStyle>
   );
