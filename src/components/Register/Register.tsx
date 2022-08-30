@@ -1,8 +1,9 @@
 import Button from "../Button/Button";
+import { RegisterStyle } from "./RegisterStyled";
 
 export const Register = () => {
   return (
-    <div className="main-component">
+    <RegisterStyle>
       <h2>Create an account</h2>
       <form>
         <input
@@ -19,6 +20,6 @@ export const Register = () => {
         />
         <Button buttonText="Sign up!" />
       </form>
-    </div>
+    </RegisterStyle>
   );
 };

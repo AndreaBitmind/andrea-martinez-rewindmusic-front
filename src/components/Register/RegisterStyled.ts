@@ -4,6 +4,7 @@ export const RegisterStyle = styled.div`
   padding: 0;
   margin: 0 auto;
   display: flex;
+  flex-direction: column;
   width: fit-content;
   padding: 3rem;
   padding-left: 20px;
