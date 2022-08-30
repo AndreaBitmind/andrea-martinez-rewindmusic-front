@@ -1,3 +1,5 @@
+import Button from "../Button/Button";
+
 export const Register = () => {
   return (
     <div className="main-component">
@@ -15,7 +17,7 @@ export const Register = () => {
           required
           autoComplete="off"
         />
-        <button type="submit">Sign up</button>
+        <Button buttonText="Sign up!" />
       </form>
     </div>
   );
