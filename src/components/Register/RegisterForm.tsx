@@ -5,7 +5,7 @@ import useUser from "../../hooks/useUser";
 import Button from "../Button/Button";
 import { RegisterStyle } from "./RegisterStyled";
 
-export const Register = () => {
+export const RegisterForm = () => {
   const { register } = useUser();
 
   const initialState = {

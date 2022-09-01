@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Register } from "./Register";
+import { RegisterForm } from "./RegisterForm";
 
 const mockUser = jest.fn();
 
@@ -11,7 +11,7 @@ jest.mock("../../hooks/useUser", () => () => ({
 describe("Given a form component", () => {
   describe("When instantiated", () => {
     test("Then it should display a form with a title, two inputs and a button", () => {
-      render(<Register />);
+      render(<RegisterForm />);
 
       const elements = [
         screen.getByText("Create an account"),
@@ -28,7 +28,7 @@ describe("Given a form component", () => {
     test("Then every input should have what the users filled inside", async () => {
       const name = "andrea";
       const password = "12345";
-      render(<Register />);
+      render(<RegisterForm />);
 
       const userNameInput = screen.getByPlaceholderText(
         "Enter your username"
@@ -49,7 +49,7 @@ describe("Given a form component", () => {
     test("Then the register function will be called", async () => {
       const name = "andrea";
       const password = "12345";
-      render(<Register />);
+      render(<RegisterForm />);
 
       const userNameInput = screen.getByPlaceholderText(
         "Enter your username"

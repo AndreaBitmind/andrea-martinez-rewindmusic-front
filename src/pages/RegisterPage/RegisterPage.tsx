@@ -1,9 +1,9 @@
-import { Register } from "../../components/Register/Register";
+import { RegisterForm } from "../../components/Register/RegisterForm";
 
 const RegisterPage = (): JSX.Element => {
   return (
     <>
-      <Register />
+      <RegisterForm />
     </>
   );
 };
