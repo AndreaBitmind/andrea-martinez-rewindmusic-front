@@ -8,7 +8,7 @@ function App() {
     <>
       <ThemeProvider theme={styledMainTheme}>
         <Routes>
-          <Route path="/users/register" element={<RegisterPage />} />
+          <Route path="/register" element={<RegisterPage />} />
         </Routes>
       </ThemeProvider>
     </>
