@@ -21,7 +21,7 @@ const useUser = () => {
 
       successModal("Successfully signed up!");
     } catch (error) {
-      errorModal("Error, this user already exists");
+      errorModal("Error, something went wrong");
     }
   };
 
