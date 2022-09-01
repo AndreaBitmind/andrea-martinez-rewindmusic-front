@@ -1,15 +1,15 @@
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import { Register } from "./components/Register/Register";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import styledMainTheme from "./styledMainTheme";
 
 function App() {
   return (
     <>
       <ThemeProvider theme={styledMainTheme}>
-        <ToastContainer />
-        <Register />
+        <Routes>
+          <Route path="/users/register" element={<RegisterPage />} />
+        </Routes>
       </ThemeProvider>
     </>
   );
