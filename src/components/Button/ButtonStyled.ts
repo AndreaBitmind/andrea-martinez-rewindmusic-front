@@ -1,11 +1,15 @@
 import styled from "styled-components";
 
 const ButtonStyled = styled.div`
+  display: flex;
+  justify-content: space-between;
+
   .submit-big {
     padding: 1.5rem;
-    width: 379px;
+    width: 350px;
     height: 40px;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    margin-top: 20px;
     border-radius: 7px;
     background-color: ${(props) => props.theme.mainButton};
     display: flex;
@@ -13,7 +17,6 @@ const ButtonStyled = styled.div`
     align-items: center;
     font-weight: bold;
     border-color: ${(props) => props.theme.mainButton};
-    margin-top: 20px;
     font-family: inherit;
   }
 `;

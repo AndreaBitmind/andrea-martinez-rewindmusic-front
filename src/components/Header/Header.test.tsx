@@ -4,7 +4,7 @@ import { Header } from "./Header";
 
 describe("Given a header component", () => {
   describe("When instantiated", () => {
-    test("Then it should display an image, and two navLinks as a buttons", () => {
+    test("Then it should display an image, and a navigation bar", () => {
       render(
         <BrowserRouter>
           <Header />
