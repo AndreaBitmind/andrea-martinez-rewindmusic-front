@@ -23,20 +23,10 @@ export const LoginForm = () => {
           required
           autoComplete="off"
         />
-        <Button
-          actionOnClick={() => {}}
-          className="submit-big"
-          type="submit"
-          buttonText="Sign in!"
-        />
+        <Button className="submit-big" type="submit" buttonText="Sign in!" />
         <p>Don't have an account? Register now!</p>
         <NavLink to={"/register"}>
-          <Button
-            actionOnClick={() => {}}
-            className="submit-big"
-            type="submit"
-            buttonText="Register"
-          />
+          <Button className="submit-big" type="submit" buttonText="Register" />
         </NavLink>
       </form>
     </RegisterStyle>
