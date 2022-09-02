@@ -58,7 +58,7 @@ export const RegisterForm = () => {
           actionOnClick={() => {}}
           className="submit-big"
           type="submit"
-          buttonText="Sign up!"
+          buttonText="Register"
           isDisabled={hasEmptyFields}
         />
       </form>
