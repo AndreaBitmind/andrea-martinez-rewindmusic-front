@@ -4,6 +4,7 @@ import { NavigationStyled } from "./NavigationStyled";
 
 export const Navigation = () => {
   const { pathname } = useLocation();
+
   return (
     <>
       <NavigationStyled>
