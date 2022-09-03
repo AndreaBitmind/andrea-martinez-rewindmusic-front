@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import Wrapper from "../../utils/Wrapper";
 import { LoginForm } from "./LoginForm";
 
 describe("Given a Loginform component", () => {
   describe("When instantiated", () => {
     test("Then it should display a form with a title, two inputs and a button", () => {
       render(
-        <BrowserRouter>
+        <Wrapper>
           <LoginForm />
-        </BrowserRouter>
+        </Wrapper>
       );
 
       const elements = [
