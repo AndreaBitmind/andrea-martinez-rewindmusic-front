@@ -3,7 +3,7 @@ export interface ProtoUser {
   password: string;
 }
 
-export interface RegisteredUser {
+export interface RegisteredUse {
   id: string;
   userName: string;
   token: string;
