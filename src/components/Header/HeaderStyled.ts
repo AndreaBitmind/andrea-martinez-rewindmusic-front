@@ -8,6 +8,6 @@ export const HeaderStyled = styled.div`
   margin: 0 20px;
 
   img {
-    max-width: 250px;
+    max-width: 300px;
   }
 `;

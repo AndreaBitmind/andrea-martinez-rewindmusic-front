@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { Header } from "./components/Header/Header";
 
 import LoginPage from "./pages/LoginPage/LoginPage";
+import NotFoundErrorPage from "./pages/NotFoundPage/NotFoundPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import styledMainTheme from "./styledMainTheme";
 
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Navigate to="/register" />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/*" element={<NotFoundErrorPage />} />
         </Routes>
       </ThemeProvider>
     </>
