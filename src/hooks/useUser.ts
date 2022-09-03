@@ -1,6 +1,10 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
+import jwtDecode from "jwt-decode";
 import { toast } from "react-toastify";
-import { UnregisteredUser } from "../interfaces/users/User";
+import { useAppDispatch } from "../app/hooks";
+import { loginUsersActionCreator } from "../app/store/features/users/slices/usersSlice";
+
+import { ProtoUser, RegisteredUse, UserToken } from "../interfaces/users/User";
 
 export const apiURL = process.env.REACT_APP_API_URL;
 
@@ -15,7 +19,8 @@ export const errorModal = (error: string) =>
   });
 
 const useUser = () => {
-  const register = async (UnregisteredUser: UnregisteredUser) => {
+  const dispatch = useAppDispatch();
+  const register = async (UnregisteredUser: ProtoUser) => {
     try {
       await axios.post(`${apiURL}users/register`, UnregisteredUser);
 
@@ -25,6 +30,27 @@ const useUser = () => {
     }
   };
 
-  return { register };
+  const login = async (userData: ProtoUser) => {
+    try {
+      const {
+        data: { token },
+      }: AxiosResponse<UserToken> = await axios.post(
+        `${apiURL}users/login`,
+        userData
+      );
+
+      if (token) {
+        localStorage.setItem("token", token);
+
+        const userInfo: RegisteredUse = jwtDecode(token);
+        dispatch(loginUsersActionCreator(userInfo));
+      }
+    } catch (error: any) {
+      errorModal("Oops! Something went wrong, try again...");
+      return error.message;
+    }
+  };
+
+  return { register, login };
 };
 export default useUser;
