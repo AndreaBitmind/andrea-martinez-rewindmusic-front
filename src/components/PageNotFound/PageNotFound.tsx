@@ -12,7 +12,7 @@ const NotFoundError = (): JSX.Element => {
         404 <br />
         PAGE NOT FOUND
       </p>
-      <img src="img/disconnect.png" width={450} alt="page not found" />
+      <img src="img/disconnect.png" width={410} alt="page not found" />
     </PageNotFoundStyled>
   );
 };
