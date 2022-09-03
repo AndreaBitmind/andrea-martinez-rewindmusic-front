@@ -6,6 +6,13 @@ import useUser from "./useUser";
 
 jest.mock("react-toastify");
 
+const mockUseDispatch = jest.fn();
+
+jest.mock("../../src/app/hooks", () => ({
+  ...jest.requireActual("../../src/app/hooks"),
+  useAppDispatch: () => mockUseDispatch,
+}));
+
 describe("Given a useUser hook", () => {
   describe("When invoke register function with a mockUser", () => {
     test("Then it should post a new user", async () => {
@@ -47,6 +54,58 @@ describe("Given a useUser hook", () => {
           }
         );
       });
+    });
+  });
+
+  describe("When login function is called with a User name and a password", () => {
+    test("Then it should return a token", async () => {
+      const mockUserTest: ProtoUser = {
+        password: "testLogin",
+        userName: "123456",
+      };
+
+      const {
+        result: {
+          current: { login },
+        },
+      } = renderHook(useUser, { wrapper: Wrapper });
+
+      await login(mockUserTest);
+
+      const expectedResult = {
+        payload: {
+          iat: 1662044238,
+          id: "6310c1eb3a8d7e088c56455b",
+          userName: "testLogin",
+        },
+        type: "users/loginUser",
+      };
+
+      expect(mockUseDispatch).toHaveBeenCalledWith(expectedResult);
+    });
+  });
+
+  describe("When login function is called with a User name or password not valid", () => {
+    test("Then it should send a modal error", async () => {
+      const mockUserTest: ProtoUser = {
+        password: "testLogin",
+        userName: "",
+      };
+
+      const {
+        result: {
+          current: { login },
+        },
+      } = renderHook(useUser, { wrapper: Wrapper });
+
+      await login(mockUserTest);
+
+      expect(toast.error).toHaveBeenCalledWith(
+        "Oops! Something went wrong, try again...",
+        {
+          position: toast.POSITION.TOP_CENTER,
+        }
+      );
     });
   });
 });
