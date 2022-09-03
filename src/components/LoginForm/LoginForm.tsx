@@ -57,6 +57,7 @@ export const LoginForm = () => {
           type="submit"
           buttonText="Sign in!"
           isDisabled={hasEmptyFields}
+          actionOnClick={() => {}}
         />
         <p>Don't have an account? Register now!</p>
         <NavLink to={"/register"}>
