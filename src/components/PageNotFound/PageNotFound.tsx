@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { PageNotFoundStyled } from "./PageNotFoundStyled";
 
-const NotFoundError = (): JSX.Element => {
+const PageNotFound = (): JSX.Element => {
   return (
     <PageNotFoundStyled>
       <NavLink className="navlink-home" to={"/login"}>
@@ -17,4 +17,4 @@ const NotFoundError = (): JSX.Element => {
   );
 };
 
-export default NotFoundError;
+export default PageNotFound;
