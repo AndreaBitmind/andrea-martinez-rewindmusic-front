@@ -1,9 +1,9 @@
-import NotFoundError from "../../components/PageNotFound/PageNotFound";
+import PageNotFound from "../../components/PageNotFound/PageNotFound";
 
 const NotFoundErrorPage = (): JSX.Element => {
   return (
     <>
-      <NotFoundError />
+      <PageNotFound />
     </>
   );
 };
