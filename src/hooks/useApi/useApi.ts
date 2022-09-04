@@ -22,21 +22,23 @@ const useApi = () => {
 
   const getAllSongs = useCallback(async (): Promise<void> => {
     const token = localStorage.getItem("token");
-    const loadWishesUrl = `${apiURL}songs`;
+    const loadSongsUrl = `${apiURL}songs`;
 
     try {
       loadingModal("Please wait :)");
-      const { data, status } = await axios.get(loadWishesUrl, {
+      const {
+        data: { songs },
+        status,
+      } = await axios.get(loadSongsUrl, {
         headers: { authorization: `Bearer ${token}` },
       });
       if (status === 200) {
-        dispatch(loadAllSongsActionCreator(data));
+        dispatch(loadAllSongsActionCreator(songs));
       }
     } catch (error) {
       errorModal("Oops, something went wrong :(");
     }
   }, [dispatch]);
-
   return {
     getAllSongs,
   };
