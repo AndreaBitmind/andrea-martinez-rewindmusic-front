@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Songs } from "../../../../../interfaces/users/Songs";
+import { Songs } from "../../../../interfaces/users/Songs";
 
 const songsInitialState: Songs = [];
 
