@@ -1,7 +1,7 @@
 import { SyntheticEvent, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import useUser from "../../hooks/useUser";
+import useUser from "../../hooks/useUser/useUser";
 import Button from "../Button/Button";
 import { RegisterStyle } from "../RegisterForm/RegisterStyled";
 

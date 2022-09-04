@@ -1,7 +1,7 @@
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { SyntheticEvent, useState } from "react";
-import useUser from "../../hooks/useUser";
+import useUser from "../../hooks/useUser/useUser";
 import Button from "../Button/Button";
 import { RegisterStyle } from "./RegisterStyled";
 
