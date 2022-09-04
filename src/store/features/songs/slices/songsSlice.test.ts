@@ -15,6 +15,7 @@ describe("Given a songs slice", () => {
           instrument: ["guitar"],
           image: "http://picture.com",
           embeded: "prueba2",
+          id: "135165",
         },
         {
           songName: "Barbie girl",
@@ -24,6 +25,7 @@ describe("Given a songs slice", () => {
           instrument: ["piano"],
           image: "http://picture.com",
           embeded: "prueba2",
+          id: "135166",
         },
       ];
 
