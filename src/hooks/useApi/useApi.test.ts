@@ -25,6 +25,7 @@ describe("Given a useApi hook", () => {
         instrument: ["guitar"],
         image: "http://picture.com",
         embeded: "prueba2",
+        id: "135165",
       },
       {
         songName: "Barbie girl",
@@ -34,6 +35,7 @@ describe("Given a useApi hook", () => {
         instrument: ["piano"],
         image: "http://picture.com",
         embeded: "prueba2",
+        id: "135166",
       },
     ],
   };
