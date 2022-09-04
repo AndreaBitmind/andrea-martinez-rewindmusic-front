@@ -4,7 +4,7 @@ import NotFoundErrorPage from "./NotFoundPage";
 
 describe("Given the RegiterPage page", () => {
   describe("When it's instantiated", () => {
-    test("Then should show 'Registro' in heading", () => {
+    test("Then should show a text 'OOOPS! 404 PAGE NOT FOUND'", () => {
       render(
         <Wrapper>
           <NotFoundErrorPage />
