@@ -43,4 +43,41 @@ export const handlers = [
       );
     }
   ),
+  rest.get(`${process.env.REACT_APP_API_URL}songs`, async (req, res, ctx) => {
+    const headerTestError = req.headers.get("IsTestError");
+
+    if (headerTestError) {
+      return res(
+        ctx.status(500),
+        ctx.json({
+          error: "Something went wrong",
+        })
+      );
+    }
+    return res(
+      ctx.status(200),
+      ctx.json({
+        songs: [
+          {
+            songName: "We are your friends",
+            album: "We are your friends",
+            year: "2001",
+            band: "Justice, Simian",
+            instrument: ["guitar"],
+            image: "http://picture.com",
+            embeded: "prueba2",
+          },
+          {
+            songName: "Barbie girl",
+            album: "vicios y virtudes",
+            year: "2001",
+            band: "SFDK",
+            instrument: ["piano"],
+            image: "http://picture.com",
+            embeded: "prueba2",
+          },
+        ],
+      })
+    );
+  }),
 ];
