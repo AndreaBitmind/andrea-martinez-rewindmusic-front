@@ -4,7 +4,7 @@ import LoginPage from "./LoginPage";
 
 describe("Given the RegiterPage page", () => {
   describe("When it's instantiated", () => {
-    test("Then should show 'Registro' in heading", () => {
+    test("Then should show 'Sign In' in heading", () => {
       render(
         <Wrapper>
           <LoginPage />
