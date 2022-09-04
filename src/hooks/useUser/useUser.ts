@@ -1,10 +1,14 @@
 import axios, { AxiosResponse } from "axios";
 import jwtDecode from "jwt-decode";
 import { toast } from "react-toastify";
-import { useAppDispatch } from "../app/hooks";
-import { loginUsersActionCreator } from "../app/store/features/users/slices/usersSlice";
+import { useAppDispatch } from "../../app/hooks";
+import { loginUsersActionCreator } from "../../app/store/features/users/slices/usersSlice";
 
-import { ProtoUser, RegisteredUse, UserToken } from "../interfaces/users/User";
+import {
+  ProtoUser,
+  RegisteredUse,
+  UserToken,
+} from "../../interfaces/users/User";
 
 export const apiURL = process.env.REACT_APP_API_URL;
 

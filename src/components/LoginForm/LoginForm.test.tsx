@@ -1,15 +1,10 @@
-import {
-  fireEvent,
-  getByPlaceholderText,
-  render,
-  screen,
-} from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import Wrapper from "../../utils/Wrapper";
 
 import { LoginForm } from "./LoginForm";
 
 let mockLogin = { login: jest.fn() };
-jest.mock("../../hooks/useUser", () => () => mockLogin);
+jest.mock("../../hooks/useUser/useUser", () => () => mockLogin);
 
 describe("Given a Loginform component", () => {
   describe("When instantiated", () => {
