@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { Header } from "./components/Header/Header";
+import CardListPage from "./pages/CardListPage/CardListPage";
 
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NotFoundErrorPage from "./pages/NotFoundPage/NotFoundPage";
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Navigate to="/register" />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/songs" element={<CardListPage />} />
           <Route path="/*" element={<NotFoundErrorPage />} />
         </Routes>
       </ThemeProvider>
