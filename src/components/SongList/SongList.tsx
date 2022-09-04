@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import useApi from "../../hooks/useApi/useApi";
 import { RootState } from "../../store/store";
 
-const CardList = (): JSX.Element => {
+const SongList = (): JSX.Element => {
   const { getAllSongs } = useApi();
   const songs = useSelector((state: RootState) => state.songs);
 
@@ -22,4 +22,4 @@ const CardList = (): JSX.Element => {
   );
 };
 
-export default CardList;
+export default SongList;
