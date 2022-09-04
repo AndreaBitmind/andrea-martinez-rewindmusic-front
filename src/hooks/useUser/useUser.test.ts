@@ -8,8 +8,8 @@ jest.mock("react-toastify");
 
 const mockUseDispatch = jest.fn();
 
-jest.mock("../../../src/app/hooks", () => ({
-  ...jest.requireActual("../../../src/app/hooks"),
+jest.mock("../../store/hooks", () => ({
+  ...jest.requireActual("../../store/hooks"),
   useAppDispatch: () => mockUseDispatch,
 }));
 
