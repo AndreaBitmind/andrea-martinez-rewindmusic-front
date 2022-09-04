@@ -1,4 +1,4 @@
-import { Songs } from "../../../../../interfaces/users/Songs";
+import { Songs } from "../../../../interfaces/users/Songs";
 import songsSlice, { loadAllSongsActionCreator } from "./songsSlice";
 
 describe("Given a songs slice", () => {
