@@ -9,7 +9,7 @@ export const SongCardStyled = styled.div`
   ul {
     list-style: none;
     padding-left: 0;
-    padding-bottom: 20px;
+    padding-bottom: 2px;
   }
 
   img {
@@ -22,6 +22,13 @@ export const SongCardStyled = styled.div`
     color: white;
     padding: 4px 8px;
     border-radius: 20px;
+  }
+
+  .songCard__data {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .songcard__bottom {
@@ -42,7 +49,6 @@ export const SongCardStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
     font-size: 1.5rem;
     text-decoration: none;
   }
