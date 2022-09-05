@@ -1,7 +1,9 @@
+import { PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import { useCallback } from "react";
 import { toast } from "react-toastify";
 import { loadAllSongsActionCreator } from "../../store/features/songs/slices/songsSlice";
+import { logOutActionCreator } from "../../store/features/users/slices/usersSlice";
 
 import { useAppDispatch } from "../../store/hooks";
 
@@ -19,6 +21,11 @@ export const errorModal = (error: string) =>
 
 const useApi = () => {
   const dispatch = useAppDispatch();
+
+  const logOut = () => {
+    dispatch<PayloadAction>(logOutActionCreator());
+    localStorage.removeItem("token");
+  };
 
   const getAllSongs = useCallback(async (): Promise<void> => {
     const token = localStorage.getItem("token");
@@ -39,6 +46,7 @@ const useApi = () => {
   toast.dismiss();
   return {
     getAllSongs,
+    logOut,
   };
 };
 
