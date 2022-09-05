@@ -1,11 +1,12 @@
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import useApi from "../../hooks/useApi/useApi";
+import useUser from "../../hooks/useUser/useUser";
+
 import Button from "../Button/Button";
 import { NavigationStyled } from "./NavigationStyled";
 
 export const Navigation = () => {
   const { pathname } = useLocation();
-  const { logOut } = useApi();
+  const { logOut } = useUser();
   const navigate = useNavigate();
 
   const handleLogOut = () => {
