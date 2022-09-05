@@ -19,6 +19,23 @@ const ButtonStyled = styled.div`
     border-color: ${(props) => props.theme.mainButton};
     font-family: inherit;
   }
+
+  .autentication {
+    text-decoration: none;
+    padding: 1.2rem;
+    width: 100px;
+    height: 30px;
+    font-size: 1rem;
+    color: black;
+    border-radius: 7px;
+    background-color: ${(props) => props.theme.mainButton};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-color: ${(props) => props.theme.mainButton};
+    font-family: inherit;
+  }
 `;
 
 export default ButtonStyled;
