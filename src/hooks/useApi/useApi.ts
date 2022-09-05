@@ -36,6 +36,7 @@ const useApi = () => {
       errorModal("Oops, something went wrong :(");
     }
   }, [dispatch]);
+  toast.dismiss();
   return {
     getAllSongs,
   };
