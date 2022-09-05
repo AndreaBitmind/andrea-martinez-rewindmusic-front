@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+import Wrapper from "../../utils/Wrapper";
 import { Navigation } from "./Navigation";
 
 let mockUseLocation = { pathname: "/register" };
@@ -13,9 +13,9 @@ describe("Given a navigation component", () => {
   describe("When instantiated in a /register page", () => {
     test("Then it should display a navlink as a button", () => {
       render(
-        <BrowserRouter>
+        <Wrapper>
           <Navigation />
-        </BrowserRouter>
+        </Wrapper>
       );
 
       const element = screen.getByRole("navigation");
@@ -28,9 +28,9 @@ describe("Given a navigation component", () => {
     test("Then it should display two navlinks as a button", () => {
       mockUseLocation = { pathname: "/login" };
       render(
-        <BrowserRouter>
+        <Wrapper>
           <Navigation />
-        </BrowserRouter>
+        </Wrapper>
       );
 
       const elements = screen.getAllByRole("navigation");
