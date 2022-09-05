@@ -1,3 +1,4 @@
+import { PayloadAction } from "@reduxjs/toolkit";
 import axios, { AxiosResponse } from "axios";
 import jwtDecode from "jwt-decode";
 import { toast } from "react-toastify";
@@ -6,7 +7,10 @@ import {
   RegisteredUse,
   UserToken,
 } from "../../interfaces/users/User";
-import { loginUsersActionCreator } from "../../store/features/users/slices/usersSlice";
+import {
+  loginUsersActionCreator,
+  logOutActionCreator,
+} from "../../store/features/users/slices/usersSlice";
 import { useAppDispatch } from "../../store/hooks";
 
 export const apiURL = process.env.REACT_APP_API_URL;
@@ -35,6 +39,11 @@ const useUser = () => {
     }
   };
 
+  const logOut = () => {
+    dispatch<PayloadAction>(logOutActionCreator());
+    localStorage.removeItem("token");
+  };
+
   const login = async (userData: ProtoUser) => {
     try {
       const {
@@ -56,6 +65,6 @@ const useUser = () => {
     }
   };
 
-  return { register, login };
+  return { register, login, logOut };
 };
 export default useUser;
