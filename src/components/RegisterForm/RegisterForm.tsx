@@ -4,9 +4,12 @@ import { SyntheticEvent, useState } from "react";
 import useUser from "../../hooks/useUser/useUser";
 import Button from "../Button/Button";
 import { RegisterStyle } from "./RegisterStyled";
+import { useNavigate } from "react-router-dom";
 
 export const RegisterForm = () => {
   const { register } = useUser();
+
+  const navigate = useNavigate();
 
   const initialState = {
     userName: "",
@@ -17,8 +20,13 @@ export const RegisterForm = () => {
 
   const handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
-    register(registerData);
     setRegisterData(initialState);
+
+    const registerStatus = await register(registerData);
+
+    if (registerStatus) {
+      navigate("/login");
+    }
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {

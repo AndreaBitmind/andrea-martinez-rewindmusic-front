@@ -28,8 +28,10 @@ const useUser = () => {
       await axios.post(`${apiURL}users/register`, UnregisteredUser);
 
       successModal("Successfully signed up!");
+      return true;
     } catch (error) {
       errorModal("Error, something went wrong");
+      return false;
     }
   };
 
