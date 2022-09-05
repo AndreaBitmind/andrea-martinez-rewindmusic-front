@@ -3,7 +3,9 @@ import axios from "axios";
 import { act } from "react-dom/test-utils";
 import { toast } from "react-toastify";
 import { loadAllSongsActionCreator } from "../../store/features/songs/slices/songsSlice";
+import { logOutActionCreator } from "../../store/features/users/slices/usersSlice";
 import Wrapper from "../../utils/Wrapper";
+import useUser from "../useUser/useUser";
 import useApi from "./useApi";
 
 jest.mock("react-toastify");
@@ -98,6 +100,22 @@ describe("Given a useApi hook", () => {
       );
 
       delete axios.defaults.headers.get["IsTestError"];
+    });
+  });
+
+  describe("When logOut function is called", () => {
+    test("Then it should dispatch the log out action creator", async () => {
+      const {
+        result: {
+          current: { logOut },
+        },
+      } = renderHook(useUser, { wrapper: Wrapper });
+
+      act(() => {
+        logOut();
+      });
+
+      expect(mockUseDispatch).toHaveBeenCalledWith(logOutActionCreator());
     });
   });
 });
