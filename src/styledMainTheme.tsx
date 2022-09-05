@@ -3,6 +3,7 @@ const styledMainTheme = {
   textSecondColor: "#8B8B8B",
   backgroundSecondColor: "#FFFFFF",
   backgroundInputColor: "#B1B0FC33",
+  backgroundCard: "#D5D5F5",
   mainButton: "#A995DB",
   hoverButton: "#268578",
   adminButton: "#D992E8",
