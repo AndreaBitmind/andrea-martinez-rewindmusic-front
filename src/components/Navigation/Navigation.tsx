@@ -1,25 +1,51 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import useApi from "../../hooks/useApi/useApi";
+import Button from "../Button/Button";
 import { NavigationStyled } from "./NavigationStyled";
 
 export const Navigation = () => {
   const { pathname } = useLocation();
+  const { logOut } = useApi();
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    logOut();
+    navigate("/login");
+  };
+
+  const handleLogIn = () => {
+    navigate("/login");
+  };
+
+  const handleRegister = () => {
+    navigate("/register");
+  };
 
   return (
     <>
       <NavigationStyled>
         {pathname === "/login" && (
-          <NavLink className="navlink" to={"/register"}>
-            Register
-          </NavLink>
+          <Button
+            actionOnClick={handleRegister}
+            className="autentication"
+            type="submit"
+            buttonText="Register"
+          />
         )}
         {pathname === "/register" && (
           <div className="main-buttons">
-            <NavLink className="navlink" to={"/login"}>
-              Home
-            </NavLink>
-            <NavLink className="navlink" to={"/login"}>
-              Login
-            </NavLink>
+            <Button
+              actionOnClick={handleLogIn}
+              className="autentication"
+              type="submit"
+              buttonText="Back"
+            />
+            <Button
+              actionOnClick={handleLogIn}
+              className="autentication"
+              type="submit"
+              buttonText="Log In"
+            />
           </div>
         )}
         {pathname === "/songs" && (
@@ -27,9 +53,12 @@ export const Navigation = () => {
             <NavLink className="navlink-upload" to={"/login"}>
               Upload song
             </NavLink>
-            <NavLink className="navlink" to={"/login"}>
-              Logout
-            </NavLink>
+            <Button
+              actionOnClick={handleLogOut}
+              className="autentication"
+              type="submit"
+              buttonText="LogOut"
+            />
           </div>
         )}
       </NavigationStyled>
