@@ -6,7 +6,7 @@ const ButtonStyled = styled.div`
 
   .submit-big {
     padding: 1.5rem;
-    width: 350px;
+    width: 390px;
     height: 40px;
     font-size: 1rem;
     margin-top: 20px;
