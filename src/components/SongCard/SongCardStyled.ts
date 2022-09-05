@@ -14,7 +14,6 @@ export const SongCardStyled = styled.div`
 
   img {
     border-radius: 10px;
-    padding-right: 10px;
   }
 
   span {
@@ -29,6 +28,7 @@ export const SongCardStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding-left: 10px;
   }
 
   .songcard__bottom {
@@ -41,7 +41,7 @@ export const SongCardStyled = styled.div`
   .navlink-edit {
     background-color: ${(props) => props.theme.adminButton};
     padding: 4px 8px;
-    border-radius: 20px;
+    border-radius: 15px;
     color: black;
     width: 70px;
     text-align: center;

@@ -4,7 +4,7 @@ export const RegisterStyle = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  width: 350px;
+  width: 390px;
   padding-top: 3rem;
   margin: 0 20px;
 
@@ -26,7 +26,7 @@ export const RegisterStyle = styled.div`
     margin-bottom: 13px;
     padding: 8px;
     border-color: ${(props) => props.theme.backgroundInputColor};
-    width: 350px;
+    width: 390px;
     height: 40px;
     font-size: 1rem;
     font-family: inherit;

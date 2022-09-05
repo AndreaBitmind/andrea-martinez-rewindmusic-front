@@ -1,4 +1,3 @@
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { SyntheticEvent, useState } from "react";
 import useUser from "../../hooks/useUser/useUser";
@@ -41,7 +40,6 @@ export const RegisterForm = () => {
 
   return (
     <RegisterStyle onSubmit={handleSubmit}>
-      <ToastContainer />
       <h2>Create an account</h2>
       <form>
         <input

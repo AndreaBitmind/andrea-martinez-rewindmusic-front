@@ -5,7 +5,7 @@ export const HeaderStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 0 20px;
+  margin: 0;
 
   img {
     max-width: 300px;

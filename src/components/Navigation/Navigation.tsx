@@ -22,6 +22,16 @@ export const Navigation = () => {
             </NavLink>
           </div>
         )}
+        {pathname === "/songs" && (
+          <div className="main-buttons">
+            <NavLink className="navlink-upload" to={"/login"}>
+              Upload song
+            </NavLink>
+            <NavLink className="navlink" to={"/login"}>
+              Logout
+            </NavLink>
+          </div>
+        )}
       </NavigationStyled>
     </>
   );

@@ -26,6 +26,7 @@ export const PageNotFoundStyled = styled.div`
   }
 
   .navlink-home {
+    text-decoration: none;
     padding: 1.2rem;
     width: 100px;
     height: 30px;
