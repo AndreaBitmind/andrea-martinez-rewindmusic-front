@@ -28,13 +28,10 @@ const useApi = () => {
       loadingModal("Please wait :)");
       const {
         data: { songs },
-        status,
       } = await axios.get(loadSongsUrl, {
         headers: { authorization: `Bearer ${token}` },
       });
-      if (status === 200) {
-        dispatch(loadAllSongsActionCreator(songs));
-      }
+      dispatch(loadAllSongsActionCreator(songs));
     } catch (error) {
       errorModal("Oops, something went wrong :(");
     }
