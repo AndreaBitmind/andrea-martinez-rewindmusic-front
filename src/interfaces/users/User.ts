@@ -10,5 +10,7 @@ export interface RegisteredUse {
 }
 
 export interface UserToken {
-  token: string;
+  user: {
+    token: string;
+  };
 }

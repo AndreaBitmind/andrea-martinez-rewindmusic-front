@@ -16,8 +16,8 @@ import styledMainTheme from "./styledMainTheme";
 import Doorman from "./components/Doorman/Doorman";
 import { useAppDispatch } from "./store/hooks";
 import { useEffect } from "react";
-import decodeToken from "./utils/decodeToken";
 import { loginUsersActionCreator } from "./store/features/users/slices/usersSlice";
+import decodeToken from "./utils/decodeToken";
 
 function App() {
   const dispatch = useAppDispatch();
