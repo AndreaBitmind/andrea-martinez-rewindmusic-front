@@ -18,10 +18,6 @@ export const Navigation = () => {
     navigate("/login");
   };
 
-  const handleRegister = () => {
-    navigate("/register");
-  };
-
   return (
     <>
       <NavigationStyled>
