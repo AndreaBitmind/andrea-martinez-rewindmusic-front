@@ -9,7 +9,7 @@ const ButtonStyled = styled.div`
     width: 390px;
     height: 40px;
     font-size: 1rem;
-    margin-top: 20px;
+    margin: 20px 0;
     border-radius: 7px;
     background-color: ${(props) => props.theme.mainButton};
     display: flex;
