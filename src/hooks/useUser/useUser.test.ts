@@ -60,8 +60,8 @@ describe("Given a useUser hook", () => {
   describe("When login function is called with a User name and a password", () => {
     test("Then it should return a token", async () => {
       const mockUserTest: ProtoUser = {
-        password: "testLogin",
-        userName: "123456",
+        password: "123456",
+        userName: "testLogin",
       };
 
       const {
@@ -69,18 +69,16 @@ describe("Given a useUser hook", () => {
           current: { login },
         },
       } = renderHook(useUser, { wrapper: Wrapper });
-
       await login(mockUserTest);
-
       const expectedResult = {
         payload: {
-          iat: 1662044238,
+          token:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzMTBjMWViM2E4ZDdlMDg4YzU2NDU1YiIsInVzZXJOYW1lIjoidGVzdExvZ2luIiwiaWF0IjoxNjYyNDc2MTc5fQ.QthCeuT1iSEUp29Px9tayUBQEBUjzr08pdFkPozDsc0",
           id: "6310c1eb3a8d7e088c56455b",
           userName: "testLogin",
         },
         type: "users/loginUser",
       };
-
       expect(mockUseDispatch).toHaveBeenCalledWith(expectedResult);
     });
   });
