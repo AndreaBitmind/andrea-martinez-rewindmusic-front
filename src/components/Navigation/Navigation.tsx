@@ -18,21 +18,9 @@ export const Navigation = () => {
     navigate("/login");
   };
 
-  const handleRegister = () => {
-    navigate("/register");
-  };
-
   return (
     <>
       <NavigationStyled>
-        {pathname === "/login" && (
-          <Button
-            actionOnClick={handleRegister}
-            className="autentication"
-            type="submit"
-            buttonText="Register"
-          />
-        )}
         {pathname === "/register" && (
           <div className="main-buttons">
             <Button

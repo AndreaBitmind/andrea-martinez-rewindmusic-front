@@ -18,6 +18,7 @@ const ButtonStyled = styled.div`
     font-weight: bold;
     border-color: ${(props) => props.theme.mainButton};
     font-family: inherit;
+    cursor: pointer;
   }
 
   .autentication {
@@ -35,6 +36,7 @@ const ButtonStyled = styled.div`
     font-weight: bold;
     border-color: ${(props) => props.theme.mainButton};
     font-family: inherit;
+    cursor: pointer;
   }
 `;
 
