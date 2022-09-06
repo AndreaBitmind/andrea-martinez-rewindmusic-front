@@ -10,11 +10,16 @@ const songsSlice = createSlice({
     loadAllSongs: (previousSongs, action: PayloadAction<Songs>) => [
       ...action.payload,
     ],
+    deleteSong: (previousState, action: PayloadAction<string>) =>
+      previousState.filter((song) => song.id !== action.payload),
   },
 });
 
 export const { reducer: songsReducer } = songsSlice;
 
-export const { loadAllSongs: loadAllSongsActionCreator } = songsSlice.actions;
+export const {
+  loadAllSongs: loadAllSongsActionCreator,
+  deleteSong: deleteSongActionCreator,
+} = songsSlice.actions;
 
 export default songsSlice.reducer;
