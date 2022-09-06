@@ -1,6 +1,6 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import axios, { AxiosResponse } from "axios";
-import jwtDecode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
   ProtoUser,
@@ -12,6 +12,7 @@ import {
   logOutActionCreator,
 } from "../../store/features/users/slices/usersSlice";
 import { useAppDispatch } from "../../store/hooks";
+import decodeToken from "../../utils/decodeToken";
 
 export const apiURL = process.env.REACT_APP_API_URL;
 
@@ -44,20 +45,24 @@ const useUser = () => {
     localStorage.removeItem("token");
   };
 
+  const navigate = useNavigate();
+
   const login = async (userData: ProtoUser) => {
     try {
       const {
-        data: { token },
+        data: {
+          user: { token },
+        },
       }: AxiosResponse<UserToken> = await axios.post(
         `${apiURL}users/login`,
         userData
       );
-
       if (token) {
+        const userInfo: RegisteredUse = decodeToken(token);
         localStorage.setItem("token", token);
-
-        const userInfo: RegisteredUse = jwtDecode(token);
         dispatch(loginUsersActionCreator(userInfo));
+        navigate("/songs");
+        return;
       }
     } catch (error: any) {
       errorModal("Oops! Something went wrong, try again...");

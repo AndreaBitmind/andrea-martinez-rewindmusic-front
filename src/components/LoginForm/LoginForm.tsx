@@ -12,11 +12,12 @@ export const LoginForm = () => {
   };
 
   const { login } = useUser();
+
   const [formData, setFormData] = useState(initialState);
 
-  const onSubmitData = (event: SyntheticEvent) => {
+  const onSubmitData = async (event: SyntheticEvent) => {
     event.preventDefault();
-    login({
+    await login({
       userName: formData.userName,
       password: formData.password,
     });
@@ -30,10 +31,10 @@ export const LoginForm = () => {
     formData.userName.length < 4 || formData.password.length < 4;
 
   return (
-    <RegisterStyle onSubmit={onSubmitData}>
+    <RegisterStyle>
       <ToastContainer />
       <h2>Sign In</h2>
-      <form>
+      <form onSubmit={onSubmitData}>
         <input
           type="text"
           id="userName"
