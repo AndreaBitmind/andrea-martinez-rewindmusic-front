@@ -80,7 +80,7 @@ describe("Given a useApi hook", () => {
     });
   });
 
-  describe("When invoke getAllWishes function and it not receives a mockWishList", () => {
+  describe("When invoke getAllSongs function and it not receives a mockSongList", () => {
     test("Then it should send an error message modal", async () => {
       axios.defaults.headers.get["IsTestError"] = true;
 

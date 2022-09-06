@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import Wrapper from "../../utils/Wrapper";
-
 import { LoginForm } from "./LoginForm";
 
 let mockLogin = { login: jest.fn() };

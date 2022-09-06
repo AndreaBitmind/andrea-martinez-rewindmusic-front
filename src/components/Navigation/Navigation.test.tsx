@@ -33,6 +33,21 @@ describe("Given a navigation component", () => {
         </Wrapper>
       );
 
+      const elements = screen.getAllByRole("button");
+
+      elements.forEach((element) => expect(element).toBeInTheDocument());
+    });
+  });
+
+  describe("When instantiated in a /songs page", () => {
+    test("Then it should display two buttons", () => {
+      mockUseLocation = { pathname: "/songs" };
+      render(
+        <Wrapper>
+          <Navigation />
+        </Wrapper>
+      );
+
       const elements = screen.getAllByRole("navigation");
 
       elements.forEach((element) => expect(element).toBeInTheDocument());
