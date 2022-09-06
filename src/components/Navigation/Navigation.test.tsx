@@ -24,21 +24,6 @@ describe("Given a navigation component", () => {
     });
   });
 
-  describe("When instantiated in a /login page", () => {
-    test("Then it should display two navlinks as a button", () => {
-      mockUseLocation = { pathname: "/login" };
-      render(
-        <Wrapper>
-          <Navigation />
-        </Wrapper>
-      );
-
-      const elements = screen.getAllByRole("button");
-
-      elements.forEach((element) => expect(element).toBeInTheDocument());
-    });
-  });
-
   describe("When instantiated in a /songs page", () => {
     test("Then it should display two buttons", () => {
       mockUseLocation = { pathname: "/songs" };
