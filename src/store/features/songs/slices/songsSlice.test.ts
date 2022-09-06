@@ -2,6 +2,7 @@ import { Isong, Songs } from "../../../../interfaces/users/Songs";
 import songsSlice, {
   deleteSongActionCreator,
   loadAllSongsActionCreator,
+  songsReducer,
 } from "./songsSlice";
 
 describe("Given a songs slice", () => {
@@ -42,27 +43,37 @@ describe("Given a songs slice", () => {
   });
 
   describe("When invoked with a initial song with an id as a payload and a deleteSong function", () => {
+    const fakeSong: Isong = {
+      songName: "We are your friends",
+      album: "We are your friends",
+      year: "2001",
+      band: "Justice, Simian",
+      instrument: ["guitar"],
+      image: "http://picture.com",
+      embeded: "prueba2",
+      id: "135165",
+    };
+    const actionType = "songs/deleteSong";
+    const expectedAction = {
+      type: actionType,
+      payload: fakeSong.id,
+    };
     test("Then it should return an action with a type 'songs/deleteSong' and a id as payload", () => {
-      const fakeSong: Isong = {
-        songName: "We are your friends",
-        album: "We are your friends",
-        year: "2001",
-        band: "Justice, Simian",
-        instrument: ["guitar"],
-        image: "http://picture.com",
-        embeded: "prueba2",
-        id: "135165",
-      };
-
-      const actionType = "songs/deleteSong";
-      const expectedAction = {
-        type: actionType,
-        payload: fakeSong.id,
-      };
-
       const action = deleteSongActionCreator(expectedAction.payload);
 
       expect(action).toStrictEqual(expectedAction);
+    });
+
+    test("Then it should remove the song passed in the action from the state", () => {
+      const initialState = [fakeSong] as Isong[];
+
+      const expectedResult = [] as Isong[];
+
+      const action = deleteSongActionCreator(fakeSong.id);
+
+      const result = songsReducer(initialState, action);
+
+      expect(result).toStrictEqual(expectedResult);
     });
   });
 });
