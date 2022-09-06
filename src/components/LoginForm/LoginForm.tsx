@@ -61,8 +61,8 @@ export const LoginForm = () => {
           actionOnClick={() => {}}
         />
         <p>Don't have an account? Register now!</p>
-        <NavLink to={"/register"}>
-          <Button className="submit-big" type="submit" buttonText="Register" />
+        <NavLink className="register-link" to={"/register"}>
+          Register
         </NavLink>
       </form>
     </RegisterStyle>
