@@ -27,12 +27,6 @@ export const Navigation = () => {
               actionOnClick={handleLogIn}
               className="autentication"
               type="submit"
-              buttonText="Back"
-            />
-            <Button
-              actionOnClick={handleLogIn}
-              className="autentication"
-              type="submit"
               buttonText="Log In"
             />
           </div>
