@@ -46,14 +46,14 @@ describe("Given a CredentialsReverseValidation component", () => {
       render(
         <Provider store={store}>
           <BrowserRouter>
-            <CredentialsReverseValidation>
-              <h1>Login</h1>
-            </CredentialsReverseValidation>
+            <DoormanReverse>
+              <LoginForm />
+            </DoormanReverse>
           </BrowserRouter>
         </Provider>
       );
 
-      const headingExpected = screen.getByRole("heading", { name: "Login" });
+      const headingExpected = screen.getByRole("button");
 
       expect(headingExpected).toBeInTheDocument();
     });

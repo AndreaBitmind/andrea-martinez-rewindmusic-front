@@ -10,6 +10,7 @@ const DoormanReverse = ({ children }: DoormanReverseProps) => {
   const user = useAppSelector((state) => state.users.token);
   const navigate = useNavigate();
   const logged = user === "" ? false : true;
+
   useEffect(() => {
     if (logged) {
       navigate("/songs");
