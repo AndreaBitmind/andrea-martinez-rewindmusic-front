@@ -1,12 +1,23 @@
-import { Navigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAppSelector } from "../../store/hooks";
 
 interface DoormanProps {
-  children: JSX.Element | JSX.Element[];
+  children: JSX.Element;
 }
 
-const Doorman = ({ children }: DoormanProps): JSX.Element => {
-  const hasToken = useAppSelector((state) => state.users.token);
-  return hasToken ? <>{children}</> : <Navigate to="/login" />;
+const CredentialsValidation = ({ children }: DoormanProps) => {
+  const user = useAppSelector((state) => state.users.token);
+  const navigate = useNavigate();
+  const logged = user === "" ? false : true;
+
+  useEffect(() => {
+    if (!logged) {
+      navigate("/login");
+    }
+  }, [logged, navigate]);
+
+  return logged ? children : <></>;
 };
-export default Doorman;
+
+export default CredentialsValidation;
