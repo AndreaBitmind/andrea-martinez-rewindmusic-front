@@ -1,6 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Wrapper from "../../utils/Wrapper";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { store } from "../../store/store";
 import SongCard from "./SongCard";
 
 let mockDeleteSong = { deleteSong: jest.fn() };
@@ -10,15 +12,17 @@ describe("Given a SongCard component", () => {
   describe("When instantiated", () => {
     test("Then it should display a card with a songname, an image, a band name, a tag with the instrument and two links (delete and edit)", () => {
       render(
-        <Wrapper>
-          <SongCard
-            band="jimmy"
-            image="blabla"
-            songName="songName"
-            instrument={["instrument1"]}
-            id="1234568468"
-          />
-        </Wrapper>
+        <Provider store={store}>
+          <BrowserRouter>
+            <SongCard
+              band="jimmy"
+              image="blabla"
+              songName="songName"
+              instrument={["instrument1"]}
+              id="1234568468"
+            />
+          </BrowserRouter>
+        </Provider>
       );
 
       const elements = [
@@ -36,15 +40,17 @@ describe("Given a SongCard component", () => {
   describe("When click on trash icon", () => {
     test("Then it should call the deleteWish function", async () => {
       render(
-        <Wrapper>
-          <SongCard
-            band="jimmy"
-            image="blabla"
-            songName="songName"
-            instrument={["instrument1"]}
-            id="1234568468"
-          />
-        </Wrapper>
+        <Provider store={store}>
+          <BrowserRouter>
+            <SongCard
+              band="jimmy"
+              image="blabla"
+              songName="songName"
+              instrument={["instrument1"]}
+              id="1234568468"
+            />
+          </BrowserRouter>
+        </Provider>
       );
 
       const iconTrash = screen.getByTestId("icon-trash");

@@ -1,5 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import Wrapper from "../../utils/Wrapper";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { store } from "../../store/store";
 import { Header } from "./Header";
 
 let mockUseLocation = { pathname: "/register" };
@@ -13,9 +15,11 @@ describe("Given a header component", () => {
   describe("When instantiated with a /register a /login path", () => {
     test("Then it should display an image, and a navigation bar", () => {
       render(
-        <Wrapper>
-          <Header />
-        </Wrapper>
+        <Provider store={store}>
+          <BrowserRouter>
+            <Header />
+          </BrowserRouter>
+        </Provider>
       );
 
       const elements = [
@@ -32,9 +36,11 @@ describe("Given a header component", () => {
       mockUseLocation = { pathname: "/songs" };
 
       render(
-        <Wrapper>
-          <Header />
-        </Wrapper>
+        <Provider store={store}>
+          <BrowserRouter>
+            <Header />
+          </BrowserRouter>
+        </Provider>
       );
 
       const elements = [

@@ -1,5 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import Wrapper from "../../utils/Wrapper";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { store } from "../../store/store";
 import { Navigation } from "./Navigation";
 
 let mockUseLocation = { pathname: "/register" };
@@ -13,9 +15,11 @@ describe("Given a navigation component", () => {
   describe("When instantiated in a /register page", () => {
     test("Then it should display a navlink as a button", () => {
       render(
-        <Wrapper>
-          <Navigation />
-        </Wrapper>
+        <Provider store={store}>
+          <BrowserRouter>
+            <Navigation />
+          </BrowserRouter>
+        </Provider>
       );
 
       const element = screen.getByRole("navigation");
@@ -28,9 +32,11 @@ describe("Given a navigation component", () => {
     test("Then it should display two buttons", () => {
       mockUseLocation = { pathname: "/songs" };
       render(
-        <Wrapper>
-          <Navigation />
-        </Wrapper>
+        <Provider store={store}>
+          <BrowserRouter>
+            <Navigation />
+          </BrowserRouter>
+        </Provider>
       );
 
       const elements = screen.getAllByRole("navigation");
