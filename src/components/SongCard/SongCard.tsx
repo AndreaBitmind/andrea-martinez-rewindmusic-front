@@ -39,12 +39,16 @@ const SongCard = ({
           <li className="data--small">{band}</li>
         </ul>
         <div className="songcard__bottom">
-          <span className="instrument">{instrument[2]}</span>
           <span className="instrument">{instrument[0]}</span>
+          <span className="instrument">{instrument[1]}</span>
         </div>
       </div>
       <div className="songCard__functionality">
-        <FaRegTrashAlt className="icon--trash" onClick={handleDelete} />
+        <FaRegTrashAlt
+          className="icon--trash"
+          data-testid="icon-trash"
+          onClick={handleDelete}
+        />
         <NavLink className="navlink-edit" to={"/login"}>
           Edit
         </NavLink>
