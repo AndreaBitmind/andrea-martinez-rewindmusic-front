@@ -2,7 +2,10 @@ import { renderHook, waitFor } from "@testing-library/react";
 import axios from "axios";
 import { act } from "react-dom/test-utils";
 import { toast } from "react-toastify";
-import { loadAllSongsActionCreator } from "../../store/features/songs/slices/songsSlice";
+import {
+  deleteSongActionCreator,
+  loadAllSongsActionCreator,
+} from "../../store/features/songs/slices/songsSlice";
 import { logOutActionCreator } from "../../store/features/users/slices/usersSlice";
 import Wrapper from "../../utils/Wrapper";
 import useUser from "../useUser/useUser";
@@ -116,6 +119,56 @@ describe("Given a useApi hook", () => {
       });
 
       expect(mockUseDispatch).toHaveBeenCalledWith(logOutActionCreator());
+    });
+  });
+
+  describe("When invoke deleteSong function with a valid song id", () => {
+    const {
+      result: {
+        current: { deleteSong },
+      },
+    } = renderHook(useApi);
+
+    const idSong: string = "232464fe42536dd232";
+
+    test("Then it should call the dispatch with the delete action creator with the id", async () => {
+      await act(async () => {
+        await deleteSong(idSong);
+      });
+
+      expect(toast.success).toHaveBeenCalledWith(
+        "Great! This song has been deleted!",
+        {
+          position: toast.POSITION.TOP_CENTER,
+        }
+      );
+
+      await waitFor(() => {
+        expect(mockUseDispatch).toHaveBeenCalledWith(
+          deleteSongActionCreator(idSong)
+        );
+      });
+    });
+
+    describe("When called with an invalid project id", () => {
+      test("Then it should not dispatch the delete action", async () => {
+        await act(async () => {
+          await deleteSong("wrongId");
+        });
+
+        expect(toast.error).toHaveBeenCalledWith(
+          "Oops, something went wrong :(",
+          {
+            position: toast.POSITION.TOP_CENTER,
+          }
+        );
+
+        await waitFor(() => {
+          expect(mockUseDispatch).not.toHaveBeenCalledWith(
+            deleteSongActionCreator(idSong)
+          );
+        });
+      });
     });
   });
 });

@@ -5,6 +5,8 @@ const data = {
   password: "12345",
 };
 
+const idSong: string = "232464fe42536dd232";
+
 export const handlers = [
   rest.post(
     `${process.env.REACT_APP_API_URL}users/register`,
@@ -84,4 +86,24 @@ export const handlers = [
       })
     );
   }),
+  rest.delete(
+    `${process.env.REACT_APP_API_URL}songs/${idSong}`,
+    async (req, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          songDelete: {
+            id: idSong,
+          },
+        })
+      );
+    }
+  ),
+
+  rest.delete(
+    `${process.env.REACT_APP_API_URL}songs/${idSong}`,
+    async (req, res, ctx) => {
+      return res(ctx.status(404), ctx.json({ error: "Song not found" }));
+    }
+  ),
 ];
