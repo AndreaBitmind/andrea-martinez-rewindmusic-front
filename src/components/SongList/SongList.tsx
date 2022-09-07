@@ -24,6 +24,7 @@ const SongList = (): JSX.Element => {
               band={song.band}
               image={song.image}
               instrument={song.instrument}
+              id={song.id}
             />
           </li>
         ))}

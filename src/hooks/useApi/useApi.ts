@@ -45,7 +45,6 @@ const useApi = () => {
     async (songId: string) => {
       const token = localStorage.getItem("token");
       const deleteSongsUrl = `${apiURL}songs/`;
-
       try {
         await axios.delete(`${deleteSongsUrl}${songId}`, {
           headers: {
@@ -57,7 +56,7 @@ const useApi = () => {
       } catch (error) {
         errorModal("Oops, something went wrong :(");
       }
-      successModal("Great! The wish has been deleted!");
+      successModal("Great! This song has been deleted!");
     },
     [dispatch]
   );

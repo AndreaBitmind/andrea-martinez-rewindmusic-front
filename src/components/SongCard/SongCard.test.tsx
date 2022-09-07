@@ -12,6 +12,7 @@ describe("Given a SongCard component", () => {
             image="blabla"
             songName="songName"
             instrument={["instrument1"]}
+            id="1234568468"
           />
         </Wrapper>
       );
