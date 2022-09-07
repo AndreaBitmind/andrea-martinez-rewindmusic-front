@@ -69,7 +69,7 @@ const useUser = () => {
       return error.message;
     }
   };
-
+  toast.dismiss();
   return { register, login, logOut };
 };
 export default useUser;

@@ -1,12 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { SongCardStyled } from "./SongCardStyled";
+import useApi from "../../hooks/useApi/useApi";
 
 interface SongCardProps {
   songName: string;
   band: string;
   image: string;
   instrument: string[];
+  id: string;
 }
 
 const SongCard = ({
@@ -14,7 +16,14 @@ const SongCard = ({
   image,
   band,
   instrument,
+  id,
 }: SongCardProps): JSX.Element => {
+  const { deleteSong } = useApi();
+
+  const handleDelete = () => {
+    deleteSong(id);
+  };
+
   return (
     <SongCardStyled>
       <img
@@ -35,7 +44,7 @@ const SongCard = ({
         </div>
       </div>
       <div className="songCard__functionality">
-        <FaRegTrashAlt className="icon--trash" />
+        <FaRegTrashAlt className="icon--trash" onClick={handleDelete} />
         <NavLink className="navlink-edit" to={"/login"}>
           Edit
         </NavLink>
