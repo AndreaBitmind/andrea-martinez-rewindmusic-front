@@ -1,6 +1,9 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Wrapper from "../../utils/Wrapper";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { store } from "../../store/store";
+
 import { RegisterForm } from "./RegisterForm";
 
 const mockUser = jest.fn();
@@ -19,9 +22,11 @@ describe("Given a form component", () => {
   describe("When instantiated", () => {
     test("Then it should display a form with a title, two inputs and a button", () => {
       render(
-        <Wrapper>
-          <RegisterForm />
-        </Wrapper>
+        <Provider store={store}>
+          <BrowserRouter>
+            <RegisterForm />
+          </BrowserRouter>
+        </Provider>
       );
 
       const elements = [
@@ -40,9 +45,11 @@ describe("Given a form component", () => {
       const name = "andrea";
       const password = "12345";
       render(
-        <Wrapper>
-          <RegisterForm />
-        </Wrapper>
+        <Provider store={store}>
+          <BrowserRouter>
+            <RegisterForm />
+          </BrowserRouter>
+        </Provider>
       );
 
       const userNameInput = screen.getByPlaceholderText(
@@ -65,11 +72,12 @@ describe("Given a form component", () => {
       const name = "andrea";
       const password = "12345";
       render(
-        <Wrapper>
-          <RegisterForm />
-        </Wrapper>
+        <Provider store={store}>
+          <BrowserRouter>
+            <RegisterForm />
+          </BrowserRouter>
+        </Provider>
       );
-
       const userNameInput = screen.getByPlaceholderText(
         "Enter your username"
       ) as HTMLInputElement;
@@ -91,9 +99,11 @@ describe("Given a form component", () => {
       const name = "andrea";
       const password = "12345";
       render(
-        <Wrapper>
-          <RegisterForm />
-        </Wrapper>
+        <Provider store={store}>
+          <BrowserRouter>
+            <RegisterForm />
+          </BrowserRouter>
+        </Provider>
       );
 
       const userNameInput = screen.getByPlaceholderText(
@@ -121,9 +131,11 @@ describe("Given a form component", () => {
       const name = "andrea";
       const password = "12345";
       render(
-        <Wrapper>
-          <RegisterForm />
-        </Wrapper>
+        <Provider store={store}>
+          <BrowserRouter>
+            <RegisterForm />
+          </BrowserRouter>
+        </Provider>
       );
 
       const userNameInput = screen.getByPlaceholderText(

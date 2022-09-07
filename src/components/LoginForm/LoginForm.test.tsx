@@ -1,5 +1,7 @@
 import { fireEvent, render, screen } from "@testing-library/react";
-import Wrapper from "../../utils/Wrapper";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
+import { store } from "../../store/store";
 import { LoginForm } from "./LoginForm";
 
 let mockLogin = { login: jest.fn() };
@@ -9,9 +11,11 @@ describe("Given a Loginform component", () => {
   describe("When instantiated", () => {
     test("Then it should display a form with a title, two inputs and a button", () => {
       render(
-        <Wrapper>
-          <LoginForm />
-        </Wrapper>
+        <Provider store={store}>
+          <BrowserRouter>
+            <LoginForm />
+          </BrowserRouter>
+        </Provider>
       );
 
       const elements = [
@@ -32,7 +36,13 @@ describe("Given a Loginform component", () => {
       const usernameFake = "rodrigo";
       const passwordFake = "098765";
 
-      render(<LoginForm />, { wrapper: Wrapper });
+      render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <LoginForm />
+          </BrowserRouter>
+        </Provider>
+      );
 
       const formInputs = {
         userName: screen.getByPlaceholderText(
@@ -58,7 +68,13 @@ describe("Given a Loginform component", () => {
       const usernameFake = "rodrigo";
       const passwordFake = "098765";
 
-      render(<LoginForm />, { wrapper: Wrapper });
+      render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <LoginForm />
+          </BrowserRouter>
+        </Provider>
+      );
 
       const form = {
         userName: screen.getByPlaceholderText(
