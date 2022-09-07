@@ -152,6 +152,7 @@ describe("Given a useApi hook", () => {
 
     describe("When called with an invalid project id", () => {
       test("Then it should not dispatch the delete action", async () => {
+        axios.defaults.headers.delete["IsTestError"] = true;
         await act(async () => {
           await deleteSong("wrongId");
         });
@@ -168,6 +169,8 @@ describe("Given a useApi hook", () => {
             deleteSongActionCreator(idSong)
           );
         });
+
+        delete axios.defaults.headers.delete["IsTestError"];
       });
     });
   });

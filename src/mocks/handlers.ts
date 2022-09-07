@@ -99,9 +99,8 @@ export const handlers = [
       );
     }
   ),
-
   rest.delete(
-    `${process.env.REACT_APP_API_URL}songs/${idSong}`,
+    `${process.env.REACT_APP_API_URL}songs/wrongId`,
     async (req, res, ctx) => {
       return res(ctx.status(404), ctx.json({ error: "Song not found" }));
     }
