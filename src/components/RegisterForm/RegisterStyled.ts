@@ -33,20 +33,8 @@ export const RegisterStyle = styled.div`
   }
 
   .register-link {
-    text-decoration: none;
     color: black;
-    padding: 1.5rem;
-    width: 390px;
-    height: 40px;
-    font-size: 1rem;
-    margin-top: 20px;
-    border-radius: 7px;
-    background-color: ${(props) => props.theme.mainButton};
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-weight: bold;
-    border-color: ${(props) => props.theme.mainButton};
     font-family: inherit;
   }
 `;
