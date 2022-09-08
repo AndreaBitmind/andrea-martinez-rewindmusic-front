@@ -22,8 +22,7 @@ describe("Given a Loginform component", () => {
         screen.getByText("Sign In"),
         screen.getByPlaceholderText("Enter your username"),
         screen.getByPlaceholderText("Enter your password"),
-        screen.getByText("Register"),
-        screen.getByText("Don't have an account? Register now!"),
+        screen.getByText("Don't have an account?"),
         screen.getByRole("link"),
       ];
 
