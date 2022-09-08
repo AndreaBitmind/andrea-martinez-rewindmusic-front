@@ -81,7 +81,7 @@ export const handlers = [
             instrument: ["piano"],
             image: "http://picture.com",
             embeded: "prueba2",
-            id: "135166",
+            id: "135165",
             owner: "123456",
           },
         ],
@@ -105,6 +105,34 @@ export const handlers = [
     `${process.env.REACT_APP_API_URL}songs/wrongId`,
     async (req, res, ctx) => {
       return res(ctx.status(404), ctx.json({ error: "Song not found" }));
+    }
+  ),
+  rest.get(
+    `${process.env.REACT_APP_API_URL}songs/${idSong}`,
+    (req, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          song: {
+            songName: "We are your friends",
+            album: "We are your friends",
+            year: "2001",
+            band: "Justice, Simian",
+            instrument: ["guitar"],
+            image: "http://picture.com",
+            embeded: "prueba2",
+            id: "232464fe42536dd232",
+            owner: "135165",
+          },
+        })
+      );
+    }
+  ),
+
+  rest.get(
+    `${process.env.REACT_APP_API_URL}songs/wrongId`,
+    (_req, res, ctx) => {
+      return res(ctx.status(404), ctx.json({ error: "Something went wrong" }));
     }
   ),
 ];
