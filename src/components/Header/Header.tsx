@@ -10,10 +10,14 @@ export const Header = (): JSX.Element => {
   return (
     <HeaderStyled>
       {isAutentication && (
-        <img src="img/header_pictures.png" width={490} alt="rewindmusic logo" />
+        <img
+          src="/img/header_pictures.png"
+          width={490}
+          alt="rewindmusic logo"
+        />
       )}
-      {pathname === "/songs" && (
-        <img src="img/logo.png" width={300} alt="rewindmusic logo" />
+      {!isAutentication && (
+        <img src="/img/logo.png" width={300} alt="rewindmusic logo" />
       )}
       <Navigation />
     </HeaderStyled>
