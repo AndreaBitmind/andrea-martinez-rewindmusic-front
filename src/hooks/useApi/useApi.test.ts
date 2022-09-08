@@ -31,6 +31,7 @@ describe("Given a useApi hook", () => {
         image: "http://picture.com",
         embeded: "prueba2",
         id: "135165",
+        owner: "123456",
       },
       {
         songName: "Barbie girl",
@@ -41,6 +42,7 @@ describe("Given a useApi hook", () => {
         image: "http://picture.com",
         embeded: "prueba2",
         id: "135166",
+        owner: "123456",
       },
     ],
   };

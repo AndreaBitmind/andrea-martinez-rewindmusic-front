@@ -7,6 +7,7 @@ export interface Isong {
   image: string;
   embeded: string;
   id: string;
+  owner: string;
 }
 
 export type Songs = Isong[];
