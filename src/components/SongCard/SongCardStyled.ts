@@ -68,6 +68,7 @@ export const SongCardStyled = styled.div`
 
   .icon--trash {
     font-size: 2.5rem;
+    cursor: pointer;
   }
 
   .songCard__functionality {
