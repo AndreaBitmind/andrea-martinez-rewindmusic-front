@@ -9,6 +9,7 @@ export const NavigationStyled = styled.nav`
     width: 390px;
     padding-bottom: 15px;
     border-bottom: 1px solid black;
+    align-items: flex-end;
   }
 
   .navlink-upload {

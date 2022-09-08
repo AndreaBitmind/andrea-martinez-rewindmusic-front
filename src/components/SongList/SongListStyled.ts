@@ -6,7 +6,7 @@ export const SongListStyled = styled.div`
   .songs-list {
     list-style: none;
     padding-left: 0;
-    min-width: 250px;
+    min-width: 390px;
     display: grid;
     gap: 12px;
   }
