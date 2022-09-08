@@ -60,10 +60,12 @@ export const LoginForm = () => {
           isDisabled={hasEmptyFields}
           actionOnClick={() => {}}
         />
-        <p>Don't have an account? Register now!</p>
-        <NavLink className="register-link" to={"/register"}>
-          Register
-        </NavLink>
+        <span>
+          Don't have an account?{" "}
+          <NavLink className="register-link" to={"/register"}>
+            Register now here!
+          </NavLink>
+        </span>
       </form>
     </RegisterStyle>
   );
