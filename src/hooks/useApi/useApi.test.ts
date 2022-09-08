@@ -41,7 +41,7 @@ describe("Given a useApi hook", () => {
         instrument: ["piano"],
         image: "http://picture.com",
         embeded: "prueba2",
-        id: "135166",
+        id: "135165",
         owner: "123456",
       },
     ],
@@ -129,7 +129,7 @@ describe("Given a useApi hook", () => {
       result: {
         current: { deleteSong },
       },
-    } = renderHook(useApi);
+    } = renderHook(useApi, { wrapper: Wrapper });
 
     const idSong: string = "232464fe42536dd232";
 
@@ -174,6 +174,50 @@ describe("Given a useApi hook", () => {
 
         delete axios.defaults.headers.delete["IsTestError"];
       });
+    });
+  });
+
+  describe("When it's invoked with getOneGameById with the correct id", () => {
+    test("Then it should return a wish with this id", async () => {
+      const idSong = "232464fe42536dd232";
+      const mockSong = {
+        songName: "We are your friends",
+        album: "We are your friends",
+        year: "2001",
+        band: "Justice, Simian",
+        instrument: ["guitar"],
+        image: "http://picture.com",
+        embeded: "prueba2",
+        id: idSong,
+        owner: "135165",
+      };
+
+      const {
+        result: {
+          current: { getOneSongById },
+        },
+      } = renderHook(useApi, { wrapper: Wrapper });
+
+      const song = await getOneSongById(idSong);
+
+      await expect(song).toStrictEqual(mockSong);
+    });
+
+    test("And if can't return a wish, it should call the error modal", async () => {
+      const {
+        result: {
+          current: { getOneSongById },
+        },
+      } = renderHook(useApi, { wrapper: Wrapper });
+
+      await getOneSongById("wrongId");
+
+      expect(toast.error).toHaveBeenCalledWith(
+        "Cannot show details from this song",
+        {
+          position: toast.POSITION.TOP_CENTER,
+        }
+      );
     });
   });
 });

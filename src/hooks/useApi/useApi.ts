@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import {
   deleteSongActionCreator,
@@ -23,6 +24,7 @@ export const errorModal = (error: string) =>
 
 const useApi = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const getAllSongs = useCallback(async (): Promise<void> => {
     const token = localStorage.getItem("token");
@@ -44,9 +46,9 @@ const useApi = () => {
   const deleteSong = useCallback(
     async (songId: string) => {
       const token = localStorage.getItem("token");
-      const deleteSongsUrl = `${apiURL}songs/`;
+      const getSongsUrl = `${apiURL}songs/`;
       try {
-        await axios.delete(`${deleteSongsUrl}${songId}`, {
+        await axios.delete(`${getSongsUrl}${songId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -61,10 +63,27 @@ const useApi = () => {
     [dispatch]
   );
 
+  const getOneSongById = useCallback(
+    async (songId: string) => {
+      const getSongsUrl = `${apiURL}songs/`;
+      try {
+        const {
+          data: { song },
+        } = await axios.get(`${getSongsUrl}${songId}`);
+        return song;
+      } catch (error) {
+        errorModal("Cannot show details from this song");
+        navigate("/songs");
+      }
+    },
+    [navigate]
+  );
+
   toast.dismiss();
   return {
     getAllSongs,
     deleteSong,
+    getOneSongById,
   };
 };
 
