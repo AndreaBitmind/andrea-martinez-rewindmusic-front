@@ -13,12 +13,12 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import NotFoundErrorPage from "./pages/NotFoundPage/NotFoundPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import styledMainTheme from "./styledMainTheme";
-import Doorman from "./components/Doorman/Doorman";
 import { useAppDispatch } from "./store/hooks";
 import { useEffect } from "react";
 import { loginUsersActionCreator } from "./store/features/users/slices/usersSlice";
 import decodeToken from "./utils/decodeToken";
-import DoormanReverse from "./components/DoormanReverse/DoormanReverse";
+
+import SongDetailsPage from "./pages/SongDetailsPage/SongDetailsPage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -41,22 +41,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to="/register" />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route
-            path="/login"
-            element={
-              <DoormanReverse>
-                <LoginPage />
-              </DoormanReverse>
-            }
-          />
-          <Route
-            path="/songs"
-            element={
-              <Doorman>
-                <SongListPage />
-              </Doorman>
-            }
-          />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/songs" element={<SongListPage />} />
+          <Route path="/songs/details/:id" element={<SongDetailsPage />} />
           <Route path="/*" element={<NotFoundErrorPage />} />
         </Routes>
       </ThemeProvider>

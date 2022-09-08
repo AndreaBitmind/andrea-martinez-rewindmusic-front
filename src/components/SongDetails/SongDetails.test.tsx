@@ -3,6 +3,14 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import SongDetailsPage from "../../pages/SongDetailsPage/SongDetailsPage";
 import { store } from "../../store/store";
+const mockSong = {
+  songName: "a theory of love",
+  album: "cellomano",
+  year: "2008",
+  band: "kumea sound",
+  image: "image",
+  instrument: ["piano", "trompeta"],
+};
 
 describe("Given a SongDetails component", () => {
   describe("When instantiated", () => {
@@ -17,7 +25,6 @@ describe("Given a SongDetails component", () => {
 
       const elements = [
         screen.getByText("SONG DETAILS"),
-        screen.getByAltText("albumPhoto"),
         screen.getByRole("list"),
       ];
 
