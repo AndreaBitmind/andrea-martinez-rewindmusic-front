@@ -49,8 +49,8 @@ const SongCard = ({
           data-testid="icon-trash"
           onClick={handleDelete}
         />
-        <NavLink className="navlink-edit" to={"/login"}>
-          Edit
+        <NavLink className="navlink-more" to={`/songs/details/${id}`}>
+          More
         </NavLink>
       </div>
     </SongCardStyled>

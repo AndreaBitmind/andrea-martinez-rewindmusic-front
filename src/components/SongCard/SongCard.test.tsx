@@ -30,7 +30,7 @@ describe("Given a SongCard component", () => {
         screen.getByRole("list"),
         screen.getByRole("link"),
         screen.getByText("instrument1"),
-        screen.getByText("Edit"),
+        screen.getByText("More"),
       ];
 
       elements.forEach((element) => expect(element).toBeInTheDocument());

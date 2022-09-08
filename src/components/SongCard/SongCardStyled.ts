@@ -23,6 +23,10 @@ export const SongCardStyled = styled.div`
     border-radius: 20px;
   }
 
+  .songcard__details {
+    text-decoration: none;
+  }
+
   .songCard__data {
     flex: 1;
     display: flex;
@@ -38,7 +42,7 @@ export const SongCardStyled = styled.div`
     gap: 5px;
   }
 
-  .navlink-edit {
+  .navlink-more {
     background-color: ${(props) => props.theme.adminButton};
     padding: 4px 8px;
     border-radius: 15px;
@@ -55,6 +59,11 @@ export const SongCardStyled = styled.div`
   .data--big {
     font-weight: bold;
     font-size: 1.5rem;
+    color: black;
+  }
+
+  .data--small {
+    color: black;
   }
 
   .icon--trash {
