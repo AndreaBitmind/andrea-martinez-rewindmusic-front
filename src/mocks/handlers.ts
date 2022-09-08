@@ -71,6 +71,7 @@ export const handlers = [
             image: "http://picture.com",
             embeded: "prueba2",
             id: "135165",
+            owner: "123456",
           },
           {
             songName: "Barbie girl",
@@ -81,6 +82,7 @@ export const handlers = [
             image: "http://picture.com",
             embeded: "prueba2",
             id: "135166",
+            owner: "123456",
           },
         ],
       })

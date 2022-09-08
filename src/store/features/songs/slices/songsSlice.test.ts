@@ -20,6 +20,7 @@ describe("Given a songs slice", () => {
           image: "http://picture.com",
           embeded: "prueba2",
           id: "135165",
+          owner: "123456",
         },
         {
           songName: "Barbie girl",
@@ -30,6 +31,7 @@ describe("Given a songs slice", () => {
           image: "http://picture.com",
           embeded: "prueba2",
           id: "135166",
+          owner: "123456",
         },
       ];
 
@@ -52,6 +54,7 @@ describe("Given a songs slice", () => {
       image: "http://picture.com",
       embeded: "prueba2",
       id: "135165",
+      owner: "123456",
     };
     const actionType = "songs/deleteSong";
     const expectedAction = {
