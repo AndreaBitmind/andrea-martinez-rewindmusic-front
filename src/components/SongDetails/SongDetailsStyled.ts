@@ -23,6 +23,7 @@ export const SongDetailsStyled = styled.div`
     margin: 12px 0;
     font-size: 1.5rem;
     display: flex;
+    justify-content: center;
   }
 
   .song-detail__details {
