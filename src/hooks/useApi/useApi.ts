@@ -65,11 +65,16 @@ const useApi = () => {
 
   const getOneSongById = useCallback(
     async (songId: string) => {
+      const token = localStorage.getItem("token");
       const getSongsUrl = `${apiURL}songs/`;
       try {
         const {
           data: { song },
-        } = await axios.get(`${getSongsUrl}${songId}`);
+        } = await axios.get(`${getSongsUrl}${songId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
         return song;
       } catch (error) {
         errorModal("Cannot show details from this song");
