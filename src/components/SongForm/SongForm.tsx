@@ -36,6 +36,7 @@ const SongForm = (): JSX.Element => {
         />
         <select
           className="instrument-selection"
+          data-testid="select-option1"
           id="instrument"
           placeholder="Instrument"
           required
@@ -51,6 +52,7 @@ const SongForm = (): JSX.Element => {
         </select>
         <select
           className="instrument-selection"
+          data-testid="select-option2"
           id="instrument"
           placeholder="Instrument"
           required
@@ -65,12 +67,7 @@ const SongForm = (): JSX.Element => {
           <option value="drum">Drum</option>
         </select>
         <input type="file" id="image" placeholder="Album image" required />
-        <Button
-          className="submit-big"
-          type="submit"
-          buttonText="Upload song"
-          actionOnClick={() => {}}
-        />
+        <Button className="submit-big" type="submit" buttonText="Upload song" />
       </form>
     </FormStyle>
   );
