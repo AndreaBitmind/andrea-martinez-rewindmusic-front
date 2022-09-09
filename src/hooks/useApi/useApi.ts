@@ -78,7 +78,7 @@ const useApi = () => {
         return song;
       } catch (error) {
         errorModal("Cannot show details from this song");
-        navigate("/songs");
+        navigate("/notfounderror");
       }
     },
     [navigate]
