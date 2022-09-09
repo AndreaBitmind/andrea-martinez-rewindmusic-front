@@ -3,7 +3,8 @@ export interface Isong {
   album: string;
   year: string;
   band: string;
-  instrument: string[];
+  firstInstrument: string;
+  secondInstrument: string;
   image: string;
   embeded: string;
   id: string;
@@ -11,3 +12,13 @@ export interface Isong {
 }
 
 export type Songs = Isong[];
+
+export interface IcreateSong {
+  songName: string;
+  album: string;
+  year: string;
+  band: string;
+  firstInstrument: string;
+  secondInstrument: string;
+  image: string;
+}
