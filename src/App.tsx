@@ -19,6 +19,7 @@ import { loginUsersActionCreator } from "./store/features/users/slices/usersSlic
 import decodeToken from "./utils/decodeToken";
 
 import SongDetailsPage from "./pages/SongDetailsPage/SongDetailsPage";
+import SongFormPage from "./pages/SongFormPage/SongFormPage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -44,6 +45,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/songs" element={<SongListPage />} />
           <Route path="/songs/:id" element={<SongDetailsPage />} />
+          <Route path="/songForm" element={<SongFormPage />} />
           <Route path="/*" element={<NotFoundErrorPage />} />
         </Routes>
       </ThemeProvider>
