@@ -2,7 +2,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { SyntheticEvent, useState } from "react";
 import useUser from "../../hooks/useUser/useUser";
 import Button from "../Button/Button";
-import { RegisterStyle } from "./RegisterStyled";
+import { FormStyle } from "./FormStyled";
 import { useNavigate } from "react-router-dom";
 
 export const RegisterForm = () => {
@@ -39,7 +39,7 @@ export const RegisterForm = () => {
     registerData.userName.length < 4 || registerData.password.length < 4;
 
   return (
-    <RegisterStyle onSubmit={handleSubmit}>
+    <FormStyle onSubmit={handleSubmit}>
       <h2>Create an account</h2>
       <form>
         <input
@@ -68,6 +68,6 @@ export const RegisterForm = () => {
           isDisabled={hasEmptyFields}
         />
       </form>
-    </RegisterStyle>
+    </FormStyle>
   );
 };
