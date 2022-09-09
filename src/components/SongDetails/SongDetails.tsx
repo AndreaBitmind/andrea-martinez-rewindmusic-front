@@ -7,7 +7,8 @@ interface SongDetailsProps {
   year: string;
   band: string;
   image: string;
-  instrument: string[];
+  firstInstrument: string;
+  secondInstrument: string;
 }
 
 export const SongDetails = ({
@@ -16,7 +17,8 @@ export const SongDetails = ({
   year,
   band,
   image,
-  instrument,
+  firstInstrument,
+  secondInstrument,
 }: SongDetailsProps): JSX.Element => {
   return (
     <SongDetailsStyled>
@@ -33,7 +35,7 @@ export const SongDetails = ({
           <li className="song-detail">{`Album: ${album}`}</li>
           <li className="song-detail">{`Year: ${year}`}</li>
           <li className="song-detail">{`Band: ${band}`}</li>
-          <li className="song-detail">{`Instrument: ${instrument[0]}, ${instrument[1]}`}</li>
+          <li className="song-detail">{`Instrument: ${firstInstrument}, ${secondInstrument}`}</li>
         </ul>
       </section>
     </SongDetailsStyled>

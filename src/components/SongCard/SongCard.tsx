@@ -7,7 +7,8 @@ interface SongCardProps {
   songName: string;
   band: string;
   image: string;
-  instrument: string[];
+  firstInstrument: string;
+  secondInstrument: string;
   id: string;
 }
 
@@ -15,7 +16,8 @@ const SongCard = ({
   songName,
   image,
   band,
-  instrument,
+  firstInstrument,
+  secondInstrument,
   id,
 }: SongCardProps): JSX.Element => {
   const { deleteSong } = useApi();
@@ -39,8 +41,8 @@ const SongCard = ({
           <li className="data--small">{band}</li>
         </ul>
         <div className="songcard__bottom">
-          <span className="instrument">{instrument[0]}</span>
-          <span className="instrument">{instrument[1]}</span>
+          <span className="instrument">{firstInstrument}</span>
+          <span className="instrument">{secondInstrument}</span>
         </div>
       </div>
       <div className="songCard__functionality">

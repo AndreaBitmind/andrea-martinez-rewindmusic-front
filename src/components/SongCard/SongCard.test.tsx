@@ -18,7 +18,8 @@ describe("Given a SongCard component", () => {
               band="jimmy"
               image="blabla"
               songName="songName"
-              instrument={["instrument1"]}
+              firstInstrument="instrument1"
+              secondInstrument="instrument2"
               id="1234568468"
             />
           </BrowserRouter>
@@ -46,7 +47,8 @@ describe("Given a SongCard component", () => {
               band="jimmy"
               image="blabla"
               songName="songName"
-              instrument={["instrument1"]}
+              firstInstrument="instrument1"
+              secondInstrument="instrument2"
               id="1234568468"
             />
           </BrowserRouter>

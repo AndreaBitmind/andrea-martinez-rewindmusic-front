@@ -9,7 +9,8 @@ const initialState: Isong = {
   album: "",
   year: "",
   band: "",
-  instrument: [""],
+  firstInstrument: "",
+  secondInstrument: "",
   image: "",
   embeded: "",
   id: "",
@@ -33,7 +34,8 @@ const SongDetailsPage = () => {
       songName={song.songName}
       band={song.band}
       image={song.image}
-      instrument={song.instrument}
+      firstInstrument={song.firstInstrument}
+      secondInstrument={song.secondInstrument}
       album={song.album}
       year={song.year}
     />
