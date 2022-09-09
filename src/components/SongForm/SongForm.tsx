@@ -37,7 +37,7 @@ const SongForm = (): JSX.Element => {
         <select
           className="instrument-selection"
           data-testid="select-option1"
-          id="instrument"
+          id="firstInstrument"
           placeholder="Instrument"
           required
         >
@@ -53,7 +53,7 @@ const SongForm = (): JSX.Element => {
         <select
           className="instrument-selection"
           data-testid="select-option2"
-          id="instrument"
+          id="secondInstrument"
           placeholder="Instrument"
           required
         >
