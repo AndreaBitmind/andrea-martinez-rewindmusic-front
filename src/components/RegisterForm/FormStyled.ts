@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const RegisterStyle = styled.div`
+export const FormStyle = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;

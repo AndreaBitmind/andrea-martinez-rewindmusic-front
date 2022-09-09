@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import useUser from "../../hooks/useUser/useUser";
 import Button from "../Button/Button";
-import { RegisterStyle } from "../RegisterForm/RegisterStyled";
+import { FormStyle } from "../RegisterForm/FormStyled";
 
 export const LoginForm = () => {
   const initialState = {
@@ -31,7 +31,7 @@ export const LoginForm = () => {
     formData.userName.length < 4 || formData.password.length < 4;
 
   return (
-    <RegisterStyle>
+    <FormStyle>
       <ToastContainer />
       <h2>Sign In</h2>
       <form onSubmit={onSubmitData}>
@@ -67,6 +67,6 @@ export const LoginForm = () => {
           </NavLink>
         </span>
       </form>
-    </RegisterStyle>
+    </FormStyle>
   );
 };
