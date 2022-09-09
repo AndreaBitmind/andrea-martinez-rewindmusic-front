@@ -49,7 +49,7 @@ const SongCard = ({
           data-testid="icon-trash"
           onClick={handleDelete}
         />
-        <NavLink className="navlink-more" to={`/songs/details/${id}`}>
+        <NavLink className="navlink-more" to={`/songs/${id}`}>
           More
         </NavLink>
       </div>

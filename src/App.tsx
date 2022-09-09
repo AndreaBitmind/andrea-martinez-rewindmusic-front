@@ -43,7 +43,7 @@ function App() {
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/songs" element={<SongListPage />} />
-          <Route path="/songs/details/:id" element={<SongDetailsPage />} />
+          <Route path="/songs/:id" element={<SongDetailsPage />} />
           <Route path="/*" element={<NotFoundErrorPage />} />
         </Routes>
       </ThemeProvider>
