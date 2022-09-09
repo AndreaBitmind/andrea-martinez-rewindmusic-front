@@ -33,7 +33,7 @@ export const Navigation = () => {
         )}
         {pathname === "/songs" && (
           <div className="main-buttons">
-            <NavLink className="navlink-upload" to={"/login"}>
+            <NavLink className="navlink-upload" to={"/songForm"}>
               Upload song
             </NavLink>
             <Button

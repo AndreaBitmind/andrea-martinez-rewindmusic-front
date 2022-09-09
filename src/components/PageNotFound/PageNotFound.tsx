@@ -4,9 +4,6 @@ import { PageNotFoundStyled } from "./PageNotFoundStyled";
 const PageNotFound = (): JSX.Element => {
   return (
     <PageNotFoundStyled>
-      <h1>
-        <img src="img/logo.png" width={300} alt="rewindmusic logo" />
-      </h1>
       <NavLink className="navlink-home" to={"/login"}>
         Home
       </NavLink>
