@@ -44,6 +44,13 @@ export const Navigation = () => {
             />
           </div>
         )}
+        {pathname === "/songForm" && (
+          <div className="main-buttons">
+            <NavLink className="navlink-upload" to={"/songs"}>
+              Back
+            </NavLink>
+          </div>
+        )}
       </NavigationStyled>
     </>
   );
