@@ -5,7 +5,7 @@ export const FormStyle = styled.div`
   display: flex;
   flex-direction: column;
   width: 390px;
-  padding-top: 3rem;
+  padding-top: 2rem;
   margin: 0 20px;
 
   h2 {
@@ -27,14 +27,26 @@ export const FormStyle = styled.div`
     padding: 8px;
     border-color: ${(props) => props.theme.backgroundInputColor};
     width: 390px;
-    height: 40px;
-    font-size: 1rem;
+    height: 60px;
+    font-size: 1.2rem;
     font-family: inherit;
   }
 
   .register-link {
     color: black;
     font-weight: bold;
+    font-family: inherit;
+  }
+
+  .instrument-selection {
+    border-radius: 7px;
+    background-color: ${(props) => props.theme.backgroundInputColor};
+    margin-bottom: 13px;
+    padding: 8px;
+    border-color: ${(props) => props.theme.backgroundInputColor};
+    width: 390px;
+    height: 40px;
+    font-size: 1rem;
     font-family: inherit;
   }
 `;
