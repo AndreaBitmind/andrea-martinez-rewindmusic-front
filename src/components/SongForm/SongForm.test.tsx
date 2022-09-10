@@ -1,8 +1,18 @@
-import { render, screen } from "@testing-library/react";
+import React from "react";
+import UserEvent from "@testing-library/user-event";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "../../store/store";
 import SongForm from "./SongForm";
+import Wrapper from "../../utils/Wrapper";
+
+beforeEach(() => jest.restoreAllMocks());
+
+const mockUseApi = {
+  createSong: jest.fn(),
+};
+jest.mock("../../hooks/useApi/useApi", () => () => mockUseApi);
 
 describe("Given a form component", () => {
   describe("When instantiated", () => {
@@ -27,6 +37,39 @@ describe("Given a form component", () => {
       ];
 
       elements.forEach((element) => expect(element).toBeInTheDocument());
+    });
+    test("And when the user write it should call the usestate", async () => {
+      const useState = jest.spyOn(React, "useState");
+      const text = "TextSong";
+      render(<SongForm />, { wrapper: Wrapper });
+
+      const textInput = screen.getAllByRole("textbox");
+      await UserEvent.type(textInput[0], text);
+
+      await waitFor(() => expect(useState).toHaveBeenCalled());
+    });
+
+    test("And when the user upload a file it should call the usestate", async () => {
+      const useState = jest.spyOn(React, "useState");
+      const idText = "Album image";
+      const file = new File(["file"], "");
+      render(<SongForm />, { wrapper: Wrapper });
+
+      const fileInput = screen.getByPlaceholderText(idText);
+      await UserEvent.upload(fileInput, file);
+
+      await waitFor(() => expect(useState).toHaveBeenCalled());
+    });
+
+    test("And when the user submit the form", async () => {
+      const useState = jest.spyOn(React, "useState");
+
+      render(<SongForm />, { wrapper: Wrapper });
+
+      const buttonSubmit = screen.getByRole("button");
+      fireEvent.submit(buttonSubmit);
+
+      await waitFor(() => expect(useState).toHaveBeenCalled());
     });
   });
 });
