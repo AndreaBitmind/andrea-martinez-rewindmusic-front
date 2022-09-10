@@ -138,4 +138,28 @@ export const handlers = [
       return res(ctx.status(404), ctx.json({ error: "Something went wrong" }));
     }
   ),
+  rest.post(`${process.env.REACT_APP_API_URL}songs`, async (req, res, ctx) => {
+    const body = await req.json();
+    if (!body.image) {
+      return res(
+        ctx.status(400),
+        ctx.json({
+          error: "Error creating song",
+        })
+      );
+    }
+
+    return res(
+      ctx.status(201),
+      ctx.json({
+        songName: "We are your friends",
+        album: "We are your friends",
+        year: "2001",
+        band: "Justice, Simian",
+        firstInstrument: "guitar",
+        secondInstrument: "piano",
+        image: "http://picture.com",
+      })
+    );
+  }),
 ];

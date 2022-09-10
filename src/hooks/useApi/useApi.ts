@@ -2,13 +2,14 @@ import axios from "axios";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { IcreateSong } from "../../interfaces/users/Songs";
 import {
+  createNewSongActionCreator,
   deleteSongActionCreator,
   loadAllSongsActionCreator,
 } from "../../store/features/songs/slices/songsSlice";
 
 import { useAppDispatch } from "../../store/hooks";
-import { successModal } from "../useUser/useUser";
 
 const apiURL = process.env.REACT_APP_API_URL;
 
@@ -20,6 +21,12 @@ export const loadingModal = (loading: string) =>
 export const errorModal = (error: string) =>
   toast.error(error, {
     position: toast.POSITION.TOP_CENTER,
+  });
+
+export const successModal = (message: string) =>
+  toast.success(message, {
+    position: toast.POSITION.TOP_CENTER,
+    autoClose: 5000,
   });
 
 const useApi = () => {
@@ -84,11 +91,33 @@ const useApi = () => {
     [navigate]
   );
 
+  const createSong = useCallback(
+    async (newSong: IcreateSong) => {
+      const token = localStorage.getItem("token");
+      try {
+        const {
+          data: { songCreated },
+        } = await axios.post(`${apiURL}songs`, newSong, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        successModal("Your songs has been correctly uploaded!");
+        dispatch(createNewSongActionCreator(songCreated));
+        return songCreated;
+      } catch (error) {
+        errorModal("Cannot create the song :(");
+      }
+    },
+    [dispatch]
+  );
+
   toast.dismiss();
   return {
     getAllSongs,
     deleteSong,
     getOneSongById,
+    createSong,
   };
 };
 
