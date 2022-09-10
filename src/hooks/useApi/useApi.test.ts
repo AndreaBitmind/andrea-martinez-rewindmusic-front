@@ -144,6 +144,7 @@ describe("Given a useApi hook", () => {
         "Great! This song has been deleted!",
         {
           position: toast.POSITION.TOP_CENTER,
+          autoClose: 5000,
         }
       );
 
@@ -221,6 +222,66 @@ describe("Given a useApi hook", () => {
           position: toast.POSITION.TOP_CENTER,
         }
       );
+    });
+  });
+
+  describe("When invoke createSong function with a new song", () => {
+    test("Then it should call the succes modal", async () => {
+      const {
+        result: {
+          current: { createSong },
+        },
+      } = renderHook(useApi, { wrapper: Wrapper });
+
+      const mockSong = {
+        songName: "We are your friends",
+        album: "We are your friends",
+        year: "2001",
+        band: "Justice, Simian",
+        firstInstrument: "guitar",
+        secondInstrument: "piano",
+        image: "http://picture.com",
+      };
+
+      await act(async () => {
+        await createSong(mockSong);
+      });
+
+      expect(toast.success).toHaveBeenCalledWith(
+        "Your songs has been correctly uploaded!",
+        {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 5000,
+        }
+      );
+    });
+  });
+
+  describe("When invoke a create wish without correctly wish", () => {
+    test("Then it should call the error modal", async () => {
+      const {
+        result: {
+          current: { createSong },
+        },
+      } = renderHook(useApi, { wrapper: Wrapper });
+
+      const mockSong = {
+        songName: "",
+        album: "",
+        year: "",
+        band: "",
+        firstInstrument: "",
+        secondInstrument: "",
+        image: "",
+      };
+
+      await act(async () => {
+        await createSong(mockSong);
+      });
+
+      expect(toast.error).toHaveBeenCalledWith("Cannot create the song :(", {
+        position: toast.POSITION.TOP_CENTER,
+      });
     });
   });
 });
