@@ -48,9 +48,9 @@ describe("Given a navigation component", () => {
     });
   });
 
-  describe("When instantiated in a /songForm page", () => {
+  describe("When instantiated in a /songCreateForm page", () => {
     test("Then it should display two buttons", () => {
-      mockUseLocation = { pathname: "/songForm" };
+      mockUseLocation = { pathname: "/songCreateForm" };
       render(
         <Provider store={store}>
           <BrowserRouter>

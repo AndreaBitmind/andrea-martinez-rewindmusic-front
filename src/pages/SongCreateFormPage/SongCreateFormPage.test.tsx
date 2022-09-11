@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import { store } from "../../store/store";
-import SongFormPage from "./SongFormPage";
+import SongCreateFormPage from "./SongCreateFormPage";
 
 const mockUseParams = jest.fn();
 const mockUseAppSelector = jest.fn();
@@ -17,7 +17,7 @@ jest.mock("../../store/hooks", () => ({
   useAppSelector: () => mockUseAppSelector(),
 }));
 
-describe("Given a SongFormPage component", () => {
+describe("Given a SongCreateFormPage component", () => {
   describe("When not receives an id", () => {
     test("Then it should rendered the create component", () => {
       mockUseParams.mockReturnValue({ id: undefined });
@@ -26,7 +26,7 @@ describe("Given a SongFormPage component", () => {
       render(
         <Provider store={store}>
           <BrowserRouter>
-            <SongFormPage />
+            <SongCreateFormPage />
           </BrowserRouter>
         </Provider>
       );

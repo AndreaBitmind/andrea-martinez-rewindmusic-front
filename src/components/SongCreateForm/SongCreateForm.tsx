@@ -1,43 +1,53 @@
 import { SyntheticEvent, useState } from "react";
 import useApi from "../../hooks/useApi/useApi";
-import { ImodifySong } from "../../interfaces/users/Songs";
 import Button from "../Button/Button";
 import { FormStyle } from "../RegisterForm/FormStyled";
 
-interface SongFormProps {
-  initialState: ImodifySong;
-}
-
 let newformData = new FormData();
 
-const SongForm = ({ initialState }: SongFormProps): JSX.Element => {
+const SongCreateForm = () => {
+  const initialState = {
+    songName: "",
+    album: "",
+    year: "",
+    band: "",
+    image: "",
+    firstInstrument: "",
+    secondInstrument: "",
+  };
+
   const { createSong } = useApi();
-  const [newSong, setNewSong] = useState(initialState);
+
+  const [formData, setFormData] = useState(initialState);
 
   const onChangeData = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    setNewSong({ ...newSong, [event.target.id]: event.target.value });
+    setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
   const onSubmitData = async (event: SyntheticEvent) => {
     event.preventDefault();
+    await createSong({
+      songName: formData.songName,
+      album: formData.album,
+      year: formData.year,
+      band: formData.band,
+      firstInstrument: formData.firstInstrument,
+      secondInstrument: formData.secondInstrument,
+      image: formData.image,
+    });
 
-    if (initialState.id) {
-    } else {
-      await createSong(newSong);
-    }
-    setNewSong(initialState);
+    setFormData(initialState);
   };
 
   const onChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     newformData.append("image", event.target.files![0]);
-    onChangeData(event);
+    setFormData({ ...formData, image: event.target.value });
   };
-
   return (
     <FormStyle>
-      <h2>{newSong.id ? "MODIFY YOUR SONG" : "UPLOAD YOUR SONG"}</h2>
+      <h2>UPLOAD YOUR SONG</h2>
       <form onSubmit={onSubmitData}>
         <input
           type="text"
@@ -45,7 +55,7 @@ const SongForm = ({ initialState }: SongFormProps): JSX.Element => {
           placeholder="Song name"
           required
           autoComplete="off"
-          value={newSong.songName}
+          value={formData.songName}
           onChange={onChangeData}
         />
         <input
@@ -54,7 +64,7 @@ const SongForm = ({ initialState }: SongFormProps): JSX.Element => {
           placeholder="Album"
           required
           autoComplete="off"
-          value={newSong.album}
+          value={formData.album}
           onChange={onChangeData}
         />
         <input
@@ -63,7 +73,7 @@ const SongForm = ({ initialState }: SongFormProps): JSX.Element => {
           placeholder="Year"
           required
           autoComplete="off"
-          value={newSong.year}
+          value={formData.year}
           onChange={onChangeData}
         />
         <input
@@ -72,7 +82,7 @@ const SongForm = ({ initialState }: SongFormProps): JSX.Element => {
           placeholder="Band"
           required
           autoComplete="off"
-          value={newSong.band}
+          value={formData.band}
           onChange={onChangeData}
         />
         <select
@@ -80,7 +90,7 @@ const SongForm = ({ initialState }: SongFormProps): JSX.Element => {
           data-testid="select-option1"
           id="firstInstrument"
           placeholder="Instrument"
-          value={newSong.firstInstrument}
+          value={formData.firstInstrument}
           onChange={onChangeData}
           required
         >
@@ -98,7 +108,7 @@ const SongForm = ({ initialState }: SongFormProps): JSX.Element => {
           data-testid="select-option2"
           id="secondInstrument"
           placeholder="Instrument"
-          value={newSong.secondInstrument}
+          value={formData.secondInstrument}
           onChange={onChangeData}
           required
         >
@@ -116,7 +126,7 @@ const SongForm = ({ initialState }: SongFormProps): JSX.Element => {
           id="image"
           placeholder="Album image"
           onChange={onChangeFile}
-          value={newSong.image}
+          value={formData.image}
         />
         <Button className="submit-big" type="submit" buttonText="Upload song" />
       </form>
@@ -124,4 +134,4 @@ const SongForm = ({ initialState }: SongFormProps): JSX.Element => {
   );
 };
 
-export default SongForm;
+export default SongCreateForm;
