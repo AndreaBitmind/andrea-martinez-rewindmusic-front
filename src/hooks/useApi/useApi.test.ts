@@ -180,8 +180,8 @@ describe("Given a useApi hook", () => {
     });
   });
 
-  describe("When it's invoked with getOneGameById with the correct id", () => {
-    test("Then it should return a wish with this id", async () => {
+  describe("When it's invoked with getOneSongById with the correct id", () => {
+    test("Then it should return a song with this id", async () => {
       const idSong = "232464fe42536dd232";
       const mockSong = {
         songName: "We are your friends",
@@ -207,7 +207,7 @@ describe("Given a useApi hook", () => {
       await expect(song).toStrictEqual(mockSong);
     });
 
-    test("And if can't return a wish, it should call the error modal", async () => {
+    test("And if can't return a song, it should call the error modal", async () => {
       const {
         result: {
           current: { getOneSongById },
@@ -257,7 +257,7 @@ describe("Given a useApi hook", () => {
     });
   });
 
-  describe("When invoke a create wish without correctly wish", () => {
+  describe("When invoke a create a song without a correct song", () => {
     test("Then it should call the error modal", async () => {
       const {
         result: {
