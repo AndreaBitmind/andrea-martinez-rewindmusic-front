@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "../../store/store";
 import SongForm from "./SongForm";
 import Wrapper from "../../utils/Wrapper";
+import { ImodifySong } from "../../interfaces/users/Songs";
 
 beforeEach(() => jest.restoreAllMocks());
 
@@ -15,12 +16,22 @@ const mockUseApi = {
 jest.mock("../../hooks/useApi/useApi", () => () => mockUseApi);
 
 describe("Given a form component", () => {
+  const initialState: ImodifySong = {
+    songName: "",
+    album: "",
+    year: "",
+    band: "",
+    image: "",
+    firstInstrument: "",
+    secondInstrument: "",
+  };
+
   describe("When instantiated", () => {
     test("Then it should display a form with a title, two inputs and a button", () => {
       render(
         <Provider store={store}>
           <BrowserRouter>
-            <SongForm />
+            <SongForm initialState={initialState} />
           </BrowserRouter>
         </Provider>
       );
@@ -41,7 +52,7 @@ describe("Given a form component", () => {
     test("And when the user write it should call the usestate", async () => {
       const useState = jest.spyOn(React, "useState");
       const text = "TextSong";
-      render(<SongForm />, { wrapper: Wrapper });
+      render(<SongForm initialState={initialState} />, { wrapper: Wrapper });
 
       const textInput = screen.getAllByRole("textbox");
       await UserEvent.type(textInput[0], text);
@@ -53,7 +64,7 @@ describe("Given a form component", () => {
       const useState = jest.spyOn(React, "useState");
       const idText = "Album image";
       const file = new File(["file"], "");
-      render(<SongForm />, { wrapper: Wrapper });
+      render(<SongForm initialState={initialState} />, { wrapper: Wrapper });
 
       const fileInput = screen.getByPlaceholderText(idText);
       await UserEvent.upload(fileInput, file);
@@ -64,7 +75,7 @@ describe("Given a form component", () => {
     test("And when the user submit the form", async () => {
       const useState = jest.spyOn(React, "useState");
 
-      render(<SongForm />, { wrapper: Wrapper });
+      render(<SongForm initialState={initialState} />, { wrapper: Wrapper });
 
       const buttonSubmit = screen.getByRole("button");
       fireEvent.submit(buttonSubmit);
