@@ -22,3 +22,7 @@ export interface IcreateSong {
   secondInstrument: string;
   image: string;
 }
+
+export interface ImodifySong extends IcreateSong {
+  id?: string;
+}
