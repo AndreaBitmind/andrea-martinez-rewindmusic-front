@@ -33,7 +33,7 @@ export const Navigation = () => {
         )}
         {pathname === "/songs" && (
           <div className="main-buttons">
-            <NavLink className="navlink-upload" to={"/songForm"}>
+            <NavLink className="navlink-upload" to={"/songCreateForm"}>
               Upload song
             </NavLink>
             <Button
@@ -44,7 +44,7 @@ export const Navigation = () => {
             />
           </div>
         )}
-        {pathname === "/songForm" && (
+        {pathname === "/songCreateForm" && (
           <div className="main-buttons">
             <NavLink className="navlink-upload" to={"/songs"}>
               Back
