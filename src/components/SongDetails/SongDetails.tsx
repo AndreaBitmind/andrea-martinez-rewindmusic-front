@@ -9,9 +9,9 @@ interface SongDetailsProps {
   image: string;
   firstInstrument: string;
   secondInstrument: string;
+  id: string;
+  imageBackUp: string;
 }
-
-const urlBack = process.env.REACT_APP_API_URL;
 
 export const SongDetails = ({
   songName,
@@ -21,6 +21,8 @@ export const SongDetails = ({
   image,
   firstInstrument,
   secondInstrument,
+  id,
+  imageBackUp,
 }: SongDetailsProps): JSX.Element => {
   return (
     <SongDetailsStyled>
@@ -34,7 +36,7 @@ export const SongDetails = ({
         <img
           width={200}
           height={200}
-          src={`${urlBack}${image}`}
+          src={imageBackUp}
           alt={`${band} album cover`}
         />
         <ul className="song-detail__details-list">
@@ -46,7 +48,7 @@ export const SongDetails = ({
         </ul>
       </section>
       <div className="modify-song">
-        <NavLink className="navlink" to={"/songModifyForm"}>
+        <NavLink className="navlink" to={`/modify-song/${id}`}>
           Modify song
         </NavLink>
       </div>

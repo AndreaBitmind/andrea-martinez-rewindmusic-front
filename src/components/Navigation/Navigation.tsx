@@ -18,6 +18,8 @@ export const Navigation = () => {
     navigate("/login");
   };
 
+  const songForm = pathname === "/create-song" || pathname === "/modify-song";
+
   return (
     <>
       <NavigationStyled>
@@ -33,7 +35,7 @@ export const Navigation = () => {
         )}
         {pathname === "/songs" && (
           <div className="main-buttons">
-            <NavLink className="navlink-upload" to={"/songCreateForm"}>
+            <NavLink className="navlink-upload" to={"/create-song"}>
               Upload song
             </NavLink>
             <Button
@@ -44,7 +46,7 @@ export const Navigation = () => {
             />
           </div>
         )}
-        {pathname === "/songCreateForm" && (
+        {songForm && (
           <div className="main-buttons">
             <NavLink className="navlink-upload" to={"/songs"}>
               Back
