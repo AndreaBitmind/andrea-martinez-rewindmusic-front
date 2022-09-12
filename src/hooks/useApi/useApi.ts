@@ -2,7 +2,6 @@ import axios from "axios";
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { IcreateSong } from "../../interfaces/users/Songs";
 import {
   createNewSongActionCreator,
   deleteSongActionCreator,
@@ -92,13 +91,14 @@ const useApi = () => {
   );
 
   const createSong = useCallback(
-    async (newSong: IcreateSong) => {
+    async (formSongData: FormData) => {
       const token = localStorage.getItem("token");
       try {
         const {
           data: { songCreated },
-        } = await axios.post(`${apiURL}songs`, newSong, {
+        } = await axios.post(`${apiURL}songs/`, formSongData, {
           headers: {
+            "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${token}`,
           },
         });
