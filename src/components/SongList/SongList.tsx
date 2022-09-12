@@ -12,7 +12,9 @@ const SongList = (): JSX.Element => {
   const songs = useSelector((state: RootState) => state.songs);
 
   useEffect(() => {
-    getAllSongs();
+    (async () => {
+      await getAllSongs();
+    })();
   }, [getAllSongs]);
 
   return (

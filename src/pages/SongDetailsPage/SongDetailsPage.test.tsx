@@ -7,9 +7,9 @@ describe("Given the SongDetails page", () => {
     test("Then should show a list inside", () => {
       render(<SongDetailsPage />, { wrapper: Wrapper });
 
-      const expectedLink = screen.getByRole("link");
+      const expectedText = screen.getByText("SONG DETAILS");
 
-      expect(expectedLink).toBeInTheDocument();
+      expect(expectedText).toBeInTheDocument();
     });
   });
 });

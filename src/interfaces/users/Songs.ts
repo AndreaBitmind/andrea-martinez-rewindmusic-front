@@ -9,6 +9,7 @@ export interface Isong {
   embeded: string;
   id: string;
   owner: string;
+  imageBackUp?: string;
 }
 
 export type Songs = Isong[];

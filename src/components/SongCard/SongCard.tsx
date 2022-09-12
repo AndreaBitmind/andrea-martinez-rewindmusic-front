@@ -12,6 +12,8 @@ interface SongCardProps {
   id: string;
 }
 
+const urlBack = process.env.REACT_APP_API_URL;
+
 const SongCard = ({
   songName,
   image,
@@ -25,14 +27,13 @@ const SongCard = ({
   const handleDelete = () => {
     deleteSong(id);
   };
-
   return (
     <SongCardStyled>
       <img
         width={100}
         height={100}
         className="songcard__image"
-        src={image}
+        src={`${urlBack}${image}`}
         alt={`${band} album cover`}
       />
       <div className="songCard__data">

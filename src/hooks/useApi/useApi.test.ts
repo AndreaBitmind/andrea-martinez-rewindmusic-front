@@ -225,8 +225,9 @@ describe("Given a useApi hook", () => {
     });
   });
 
-  describe("When invoke createSong function with a new song", () => {
+  describe("When invoke createSong function with a formData", () => {
     test("Then it should call the succes modal", async () => {
+      const song = new FormData();
       const {
         result: {
           current: { createSong },
@@ -243,8 +244,11 @@ describe("Given a useApi hook", () => {
         image: "http://picture.com",
       };
 
+      song.append("song", JSON.stringify(mockSong));
+      song.append("image", new File([], "image.jpg"));
+
       await act(async () => {
-        await createSong(mockSong);
+        await createSong(song);
       });
 
       expect(toast.success).toHaveBeenCalledWith(
@@ -257,8 +261,11 @@ describe("Given a useApi hook", () => {
     });
   });
 
-  describe("When invoke a create a song without a correct song", () => {
+  describe("When invoke a create a song without a correct formData", () => {
     test("Then it should call the error modal", async () => {
+      axios.defaults.headers.post["IsTestError"] = true;
+      const song = new FormData();
+
       const {
         result: {
           current: { createSong },
@@ -275,13 +282,18 @@ describe("Given a useApi hook", () => {
         image: "",
       };
 
+      song.append("song", JSON.stringify(mockSong));
+      song.append("image", new File([], "image.jpg"));
+
       await act(async () => {
-        await createSong(mockSong);
+        await createSong(song);
       });
 
       expect(toast.error).toHaveBeenCalledWith("Cannot create the song :(", {
         position: toast.POSITION.TOP_CENTER,
       });
+
+      delete axios.defaults.headers.post["IsTestError"];
     });
   });
 });
