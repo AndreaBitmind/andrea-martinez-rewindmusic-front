@@ -60,4 +60,27 @@ export const SongDetailsStyled = styled.div`
     font-size: 1rem;
     text-decoration: none;
   }
+
+  .modify-song {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+  }
+
+  .navlink {
+    text-decoration: none;
+    padding: 1.2rem;
+    width: 200px;
+    height: 50px;
+    font-size: 1.2rem;
+    color: black;
+    border-radius: 7px;
+    background-color: ${(props) => props.theme.adminButton};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border-color: ${(props) => props.theme.adminButton};
+    font-family: inherit;
+  }
 `;
