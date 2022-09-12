@@ -3,9 +3,9 @@ import useApi from "../../hooks/useApi/useApi";
 import Button from "../Button/Button";
 import { FormStyle } from "../RegisterForm/FormStyled";
 
-let newformData = new FormData();
+let formData = new FormData();
 
-const SongCreateForm = () => {
+const SongCreateForm = (): JSX.Element => {
   const initialState = {
     songName: "",
     album: "",
@@ -18,33 +18,38 @@ const SongCreateForm = () => {
 
   const { createSong } = useApi();
 
-  const [formData, setFormData] = useState(initialState);
+  const [formSongData, setFormSongData] = useState(initialState);
 
   const onChangeData = (
     event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
-    setFormData({ ...formData, [event.target.id]: event.target.value });
+    setFormSongData({ ...formSongData, [event.target.id]: event.target.value });
   };
-
   const onSubmitData = async (event: SyntheticEvent) => {
     event.preventDefault();
-    await createSong({
-      songName: formData.songName,
-      album: formData.album,
-      year: formData.year,
-      band: formData.band,
-      firstInstrument: formData.firstInstrument,
-      secondInstrument: formData.secondInstrument,
-      image: formData.image,
-    });
+    formData.append(
+      "song",
+      JSON.stringify({
+        songName: formSongData.songName,
+        album: formSongData.album,
+        year: formSongData.year,
+        band: formSongData.band,
+        firstInstrument: formSongData.firstInstrument,
+        secondInstrument: formSongData.secondInstrument,
+      })
+    );
+    await createSong(formData);
 
-    setFormData(initialState);
+    setFormSongData(initialState);
+    formData = new FormData();
   };
 
   const onChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
-    newformData.append("image", event.target.files![0]);
-    setFormData({ ...formData, image: event.target.value });
+    formData.append("image", event.target.files![0]);
+    onChangeData(event);
+    /*     setFormSongData({ ...formSongData, image: event.target.value }); */
   };
+
   return (
     <FormStyle>
       <h2>UPLOAD YOUR SONG</h2>
@@ -55,7 +60,7 @@ const SongCreateForm = () => {
           placeholder="Song name"
           required
           autoComplete="off"
-          value={formData.songName}
+          value={formSongData.songName}
           onChange={onChangeData}
         />
         <input
@@ -64,7 +69,7 @@ const SongCreateForm = () => {
           placeholder="Album"
           required
           autoComplete="off"
-          value={formData.album}
+          value={formSongData.album}
           onChange={onChangeData}
         />
         <input
@@ -73,7 +78,7 @@ const SongCreateForm = () => {
           placeholder="Year"
           required
           autoComplete="off"
-          value={formData.year}
+          value={formSongData.year}
           onChange={onChangeData}
         />
         <input
@@ -82,7 +87,7 @@ const SongCreateForm = () => {
           placeholder="Band"
           required
           autoComplete="off"
-          value={formData.band}
+          value={formSongData.band}
           onChange={onChangeData}
         />
         <select
@@ -90,7 +95,7 @@ const SongCreateForm = () => {
           data-testid="select-option1"
           id="firstInstrument"
           placeholder="Instrument"
-          value={formData.firstInstrument}
+          value={formSongData.firstInstrument}
           onChange={onChangeData}
           required
         >
@@ -108,7 +113,7 @@ const SongCreateForm = () => {
           data-testid="select-option2"
           id="secondInstrument"
           placeholder="Instrument"
-          value={formData.secondInstrument}
+          value={formSongData.secondInstrument}
           onChange={onChangeData}
           required
         >
@@ -126,7 +131,7 @@ const SongCreateForm = () => {
           id="image"
           placeholder="Album image"
           onChange={onChangeFile}
-          value={formData.image}
+          value={formSongData.image}
         />
         <Button className="submit-big" type="submit" buttonText="Upload song" />
       </form>
