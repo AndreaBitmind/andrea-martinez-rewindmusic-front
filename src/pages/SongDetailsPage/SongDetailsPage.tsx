@@ -15,6 +15,7 @@ const initialState: Isong = {
   embeded: "",
   id: "",
   owner: "",
+  imageBackUp: "",
 };
 
 const SongDetailsPage = () => {
@@ -38,6 +39,8 @@ const SongDetailsPage = () => {
       secondInstrument={song.secondInstrument}
       album={song.album}
       year={song.year}
+      id={song.id}
+      imageBackUp={song.imageBackUp as string}
     />
   );
 };
