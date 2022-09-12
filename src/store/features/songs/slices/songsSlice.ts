@@ -17,6 +17,11 @@ const songsSlice = createSlice({
       ...previousState,
       action.payload,
     ],
+    modifySong: (previousState, action: PayloadAction<Isong>) => {
+      return previousState.map((song) =>
+        song.id === action.payload.id ? action.payload : song
+      );
+    },
   },
 });
 
@@ -26,6 +31,7 @@ export const {
   loadAllSongs: loadAllSongsActionCreator,
   deleteSong: deleteSongActionCreator,
   createSong: createNewSongActionCreator,
+  modifySong: modifySongActionCreator,
 } = songsSlice.actions;
 
 export default songsSlice.reducer;
