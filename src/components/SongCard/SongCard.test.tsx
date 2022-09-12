@@ -21,6 +21,7 @@ describe("Given a SongCard component", () => {
               firstInstrument="instrument1"
               secondInstrument="instrument2"
               id="1234568468"
+              imageBackUp="image"
             />
           </BrowserRouter>
         </Provider>
@@ -50,6 +51,7 @@ describe("Given a SongCard component", () => {
               firstInstrument="instrument1"
               secondInstrument="instrument2"
               id="1234568468"
+              imageBackUp="image"
             />
           </BrowserRouter>
         </Provider>

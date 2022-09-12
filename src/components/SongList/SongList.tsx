@@ -29,6 +29,7 @@ const SongList = (): JSX.Element => {
               firstInstrument={song.firstInstrument}
               secondInstrument={song.secondInstrument}
               id={song.id}
+              imageBackUp={song.imageBackUp as string}
             />
           </li>
         ))}

@@ -10,9 +10,10 @@ interface SongCardProps {
   firstInstrument: string;
   secondInstrument: string;
   id: string;
+  imageBackUp: string;
 }
 
-const urlBack = process.env.REACT_APP_API_URL;
+/* const urlBack = process.env.REACT_APP_API_URL; */
 
 const SongCard = ({
   songName,
@@ -21,6 +22,7 @@ const SongCard = ({
   firstInstrument,
   secondInstrument,
   id,
+  imageBackUp,
 }: SongCardProps): JSX.Element => {
   const { deleteSong } = useApi();
 
@@ -33,7 +35,7 @@ const SongCard = ({
         width={100}
         height={100}
         className="songcard__image"
-        src={`${urlBack}${image}`}
+        src={imageBackUp}
         alt={`${band} album cover`}
       />
       <div className="songCard__data">
