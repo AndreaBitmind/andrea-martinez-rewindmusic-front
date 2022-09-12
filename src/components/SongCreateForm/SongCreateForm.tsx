@@ -47,7 +47,6 @@ const SongCreateForm = (): JSX.Element => {
   const onChangeFile = (event: React.ChangeEvent<HTMLInputElement>) => {
     formData.append("image", event.target.files![0]);
     onChangeData(event);
-    /*     setFormSongData({ ...formSongData, image: event.target.value }); */
   };
 
   return (

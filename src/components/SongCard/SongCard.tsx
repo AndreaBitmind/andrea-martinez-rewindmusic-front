@@ -13,8 +13,6 @@ interface SongCardProps {
   imageBackUp: string;
 }
 
-/* const urlBack = process.env.REACT_APP_API_URL; */
-
 const SongCard = ({
   songName,
   image,
