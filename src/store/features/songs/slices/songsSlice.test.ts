@@ -3,6 +3,7 @@ import songsSlice, {
   createNewSongActionCreator,
   deleteSongActionCreator,
   loadAllSongsActionCreator,
+  modifySongActionCreator,
   songsReducer,
 } from "./songsSlice";
 
@@ -108,6 +109,81 @@ describe("Given a songs slice", () => {
       const result = songsReducer(initialState, actionFake);
 
       expect(result).toStrictEqual(expectedResult);
+    });
+  });
+
+  describe("When called with a modifySong action with a song that exists in the state", () => {
+    test("Then it should return an updated state", () => {
+      const fakeInitialSong: Songs = [
+        {
+          songName: "We are your friends",
+          album: "We are your friends",
+          year: "2001",
+          band: "Justice, Simian",
+          firstInstrument: "guitar",
+          secondInstrument: "piano",
+          image: "http://picture.com",
+          embeded: "prueba2",
+          id: "135165",
+          owner: "123456",
+        },
+      ];
+
+      const modifiedfakeSong: Isong = {
+        songName: "We are your friends",
+        album: "We are your friends",
+        year: "2001",
+        band: "Justice, Simian",
+        firstInstrument: "guitar",
+        secondInstrument: "piano",
+        image: "http://picture.com",
+        embeded: "prueba2",
+        id: "135165",
+        owner: "123456",
+      };
+
+      const actionFake = modifySongActionCreator(modifiedfakeSong);
+
+      const result = songsReducer(fakeInitialSong, actionFake);
+
+      expect(result).toStrictEqual([modifiedfakeSong]);
+    });
+  });
+  describe("When called with a modifySong action with a song that does not exist in the state", () => {
+    test("Then it should return a song with the same state", () => {
+      const fakeInitialSong: Songs = [
+        {
+          songName: "We are your friends",
+          album: "We are your friends",
+          year: "2001",
+          band: "Justice, Simian",
+          firstInstrument: "guitar",
+          secondInstrument: "piano",
+          image: "http://picture.com",
+          embeded: "prueba2",
+          id: "135168",
+          owner: "123456",
+        },
+      ];
+
+      const modifiedfakeSong: Isong = {
+        songName: "We are your friends",
+        album: "We are your friends",
+        year: "2001",
+        band: "Justice, Simian",
+        firstInstrument: "guitar",
+        secondInstrument: "piano",
+        image: "http://picture.com",
+        embeded: "prueba2",
+        id: "135169",
+        owner: "123456",
+      };
+
+      const actionFake = modifySongActionCreator(modifiedfakeSong);
+
+      const result = songsReducer(fakeInitialSong, actionFake);
+
+      expect(result).toStrictEqual(fakeInitialSong);
     });
   });
 });
