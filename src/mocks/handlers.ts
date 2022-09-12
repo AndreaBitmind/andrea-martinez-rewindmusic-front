@@ -163,4 +163,30 @@ export const handlers = [
       })
     );
   }),
+
+  rest.put(
+    `${process.env.REACT_APP_API_URL}songs/${idSong}`,
+    async (req, res, ctx) => {
+      return res(
+        ctx.status(200),
+        ctx.json({
+          id: idSong,
+          songName: "We are your friends",
+          album: "We are your friends",
+          year: "2001",
+          band: "Justice, Simian",
+          firstInstrument: "guitar",
+          secondInstrument: "piano",
+          image: "http://picture.com",
+        })
+      );
+    }
+  ),
+
+  rest.put(
+    `${process.env.REACT_APP_API_URL}songs/wrongId`,
+    async (req, res, ctx) => {
+      return res(ctx.status(400), ctx.json({ error: "Error to modify song" }));
+    }
+  ),
 ];

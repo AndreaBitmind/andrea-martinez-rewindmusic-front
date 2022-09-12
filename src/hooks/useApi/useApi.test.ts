@@ -296,4 +296,62 @@ describe("Given a useApi hook", () => {
       delete axios.defaults.headers.post["IsTestError"];
     });
   });
+
+  describe("When invoked a modifySong function with a formData", () => {
+    test("Then it should call the succes modal", async () => {
+      const song = new FormData();
+
+      const {
+        result: {
+          current: { modifySong },
+        },
+      } = renderHook(useApi, { wrapper: Wrapper });
+
+      const idSong: string = "232464fe42536dd232";
+
+      const mockSong = {
+        id: idSong,
+        songName: "We are your friends",
+        album: "We are your friends",
+        year: "2001",
+        band: "Justice, Simian",
+        firstInstrument: "guitar",
+        secondInstrument: "piano",
+        image: "http://picture.com",
+      };
+
+      song.append("wish", JSON.stringify(mockSong));
+      song.append("image", new File([], "picture.png"));
+
+      await act(async () => {
+        await modifySong(song, idSong);
+      });
+
+      expect(toast.success).toHaveBeenCalledWith(
+        "Song modified successfully!",
+
+        {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 5000,
+        }
+      );
+    });
+  });
+
+  describe("When invoked a modifySong without a correctly id", () => {
+    test("Then it should call the error modal", async () => {
+      const wish = new FormData();
+      const {
+        result: {
+          current: { modifySong },
+        },
+      } = renderHook(useApi, { wrapper: Wrapper });
+
+      await modifySong(wish, "wrongId");
+
+      expect(toast.error).toHaveBeenCalledWith("Cannot modify the song :(", {
+        position: toast.POSITION.TOP_CENTER,
+      });
+    });
+  });
 });
