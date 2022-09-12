@@ -138,9 +138,10 @@ export const handlers = [
       return res(ctx.status(404), ctx.json({ error: "Something went wrong" }));
     }
   ),
-  rest.post(`${process.env.REACT_APP_API_URL}songs`, async (req, res, ctx) => {
-    const body = await req.json();
-    if (!body.image) {
+  rest.post(`${process.env.REACT_APP_API_URL}songs/`, async (req, res, ctx) => {
+    const headerTestError = req.headers.get("IsTestError");
+
+    if (headerTestError) {
       return res(
         ctx.status(400),
         ctx.json({
