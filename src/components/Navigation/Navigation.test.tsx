@@ -7,6 +7,7 @@ import { Navigation } from "./Navigation";
 
 let mockUseLocation = { pathname: "/register" };
 let mockLogout = { logOut: jest.fn() };
+let mockLogIn = { logIn: jest.fn() };
 
 jest.mock("../../hooks/useUser/useUser", () => () => mockLogout);
 jest.mock("react-router-dom", () => ({
@@ -50,7 +51,8 @@ describe("Given a navigation component", () => {
 
   describe("When instantiated in a /songCreateForm page", () => {
     test("Then it should display two buttons", () => {
-      mockUseLocation = { pathname: "/songCreateForm" };
+      mockUseLocation = { pathname: "/create-song" };
+      mockUseLocation = { pathname: "/modify-song" };
       render(
         <Provider store={store}>
           <BrowserRouter>
@@ -83,6 +85,25 @@ describe("Given a navigation component", () => {
       expect(iconLogOut).toBeInTheDocument();
 
       expect(mockLogout.logOut).toHaveBeenCalled();
+    });
+  });
+
+  describe("When click on logIn icon", () => {
+    test("Then it should call the logIn function", async () => {
+      mockUseLocation = { pathname: "/register" };
+      render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <Navigation />
+          </BrowserRouter>
+        </Provider>
+      );
+
+      const buttonLogIn = screen.getByRole("button", { name: "LogIn" });
+
+      await userEvent.click(buttonLogIn);
+
+      expect(buttonLogIn).toBeInTheDocument();
     });
   });
 });
