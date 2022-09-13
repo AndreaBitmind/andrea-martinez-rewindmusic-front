@@ -1,5 +1,5 @@
 import { SyntheticEvent, useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import useApi from "../../hooks/useApi/useApi";
 import { ImodifySong } from "../../interfaces/users/Songs";
 import Button from "../Button/Button";
@@ -46,6 +46,11 @@ const SongModifyForm = ({ song }: SongFormModifyProps): JSX.Element => {
 
   return (
     <FormStyle>
+      <div className="main-buttons">
+        <NavLink className="navlink-back" to={"/songs"}>
+          Back
+        </NavLink>
+      </div>
       <h2>MODIFY YOUR SONG</h2>
       <form onSubmit={onSubmitData}>
         <input
