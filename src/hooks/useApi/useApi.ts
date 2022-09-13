@@ -129,7 +129,6 @@ const useApi = () => {
     }
   }, []);
 
-  toast.dismiss();
   return {
     getAllSongs,
     deleteSong,
