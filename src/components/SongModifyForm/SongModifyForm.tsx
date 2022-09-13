@@ -93,7 +93,7 @@ const SongModifyForm = ({ song }: SongFormModifyProps): JSX.Element => {
           onChange={onChangeData}
           required
         >
-          <option value="select">Choose an instrument</option>
+          <option value="select">Choose first instrument</option>
           <option value="piano">Piano</option>
           <option value="saxo">Saxo</option>
           <option value="bass">Bass</option>
@@ -111,7 +111,7 @@ const SongModifyForm = ({ song }: SongFormModifyProps): JSX.Element => {
           onChange={onChangeData}
           required
         >
-          <option value="select">Choose an instrument</option>
+          <option value="select">Choose second instrument</option>
           <option value="piano">Piano</option>
           <option value="saxo">Saxo</option>
           <option value="bass">Bass</option>
@@ -123,7 +123,7 @@ const SongModifyForm = ({ song }: SongFormModifyProps): JSX.Element => {
         <input
           type="file"
           id="image"
-          placeholder="Album image"
+          placeholder="Album picture"
           onChange={onChangeFile}
           value={songEdit.image}
         />
