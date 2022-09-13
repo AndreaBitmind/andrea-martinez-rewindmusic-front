@@ -29,7 +29,7 @@ export const Navigation = () => {
               actionOnClick={handleLogIn}
               className="autentication"
               type="submit"
-              buttonText="Log In"
+              buttonText="LogIn"
             />
           </div>
         )}
