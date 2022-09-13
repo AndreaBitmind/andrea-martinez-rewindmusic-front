@@ -17,7 +17,12 @@ export const Header = (): JSX.Element => {
         />
       )}
       {!isAutentication && (
-        <img src="/img/logo.png" width={300} alt="rewindmusic logo" />
+        <img
+          src="/img/logo.webp"
+          width={313}
+          height={112}
+          alt="rewindmusic logo"
+        />
       )}
       <Navigation />
     </HeaderStyled>

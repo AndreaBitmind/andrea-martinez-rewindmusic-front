@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SongListStyled = styled.div`
-  padding: 15px 0 20px 0;
+  padding: 10px 10px;
 
   .songs-list {
     list-style: none;

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderStyled = styled.h1`
+  padding: 10px 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
