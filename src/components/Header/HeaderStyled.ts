@@ -9,6 +9,6 @@ export const HeaderStyled = styled.h1`
   margin: 0;
 
   img {
-    max-width: 300px;
+    max-width: 313px;
   }
 `;
