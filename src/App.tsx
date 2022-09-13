@@ -20,6 +20,7 @@ import decodeToken from "./utils/decodeToken";
 import SongDetailsPage from "./pages/SongDetailsPage/SongDetailsPage";
 import SongCreateFormPage from "./pages/SongCreateFormPage/SongCreateFormPage";
 import SongModifyFormPage from "./pages/SongModifyFormPage/SongModifyFormPage";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -37,6 +38,7 @@ function App() {
 
   return (
     <>
+      <ToastContainer autoClose={5000} />
       <ThemeProvider theme={styledMainTheme}>
         <Header />
         <Routes>
