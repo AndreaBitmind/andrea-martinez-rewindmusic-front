@@ -19,6 +19,7 @@ import { loginUsersActionCreator } from "./store/features/users/slices/usersSlic
 import decodeToken from "./utils/decodeToken";
 import SongDetailsPage from "./pages/SongDetailsPage/SongDetailsPage";
 import SongCreateFormPage from "./pages/SongCreateFormPage/SongCreateFormPage";
+import SongModifyFormPage from "./pages/SongModifyFormPage/SongModifyFormPage";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -44,7 +45,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/songs" element={<SongListPage />} />
           <Route path="/songs/:id" element={<SongDetailsPage />} />
-          <Route path="/songCreateForm" element={<SongCreateFormPage />} />
+          <Route path="/create-song" element={<SongCreateFormPage />} />
+          <Route path="/modify-song/:id" element={<SongModifyFormPage />} />
           <Route path="/*" element={<NotFoundErrorPage />} />
         </Routes>
       </ThemeProvider>

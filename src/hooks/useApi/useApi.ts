@@ -6,7 +6,6 @@ import {
   createNewSongActionCreator,
   deleteSongActionCreator,
   loadAllSongsActionCreator,
-  modifySongActionCreator,
 } from "../../store/features/songs/slices/songsSlice";
 
 import { useAppDispatch } from "../../store/hooks";
@@ -113,29 +112,22 @@ const useApi = () => {
     [dispatch]
   );
 
-  const modifySong = useCallback(
-    async (song: FormData, id: string) => {
-      const token = localStorage.getItem("token");
-      const modifyURL = `${apiURL}songs/`;
+  const modifySong = useCallback(async (song: FormData, id: string) => {
+    const token = localStorage.getItem("token");
+    const modifyURL = `${apiURL}songs/`;
 
-      try {
-        const {
-          data: { modifiedSong },
-        } = await axios.put(`${modifyURL}${id}`, song, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        dispatch(modifySongActionCreator(modifiedSong));
-        successModal("Song modified successfully!");
-      } catch (error) {
-        errorModal("Cannot modify the song :(");
-      }
-    },
-    [dispatch]
-  );
+    try {
+      await axios.put(`${modifyURL}${id}`, song, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      successModal("Song modified successfully!");
+    } catch (error) {
+      errorModal("Cannot modify the song :(");
+    }
+  }, []);
 
   toast.dismiss();
   return {
