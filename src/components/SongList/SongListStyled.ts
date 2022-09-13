@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const SongListStyled = styled.div`
-  padding-top: 15px;
+  padding: 15px 0 20px 0;
 
   .songs-list {
     list-style: none;
     padding-left: 0;
-    min-width: 390px;
+    max-width: 390px;
     display: grid;
     gap: 12px;
   }

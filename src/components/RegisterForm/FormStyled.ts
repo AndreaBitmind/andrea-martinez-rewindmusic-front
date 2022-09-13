@@ -5,13 +5,13 @@ export const FormStyle = styled.div`
   display: flex;
   flex-direction: column;
   width: 390px;
-  padding-top: 2rem;
   margin: 0 20px;
 
   h2 {
     margin-bottom: 30px;
     font-size: 1.8rem;
     text-align: center;
+    padding-top: 20px;
   }
 
   form {
@@ -47,6 +47,31 @@ export const FormStyle = styled.div`
     width: 390px;
     height: 40px;
     font-size: 1rem;
+    font-family: inherit;
+  }
+
+  .main-buttons {
+    display: flex;
+    width: 390px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid black;
+    justify-content: flex-end;
+  }
+
+  .navlink-back {
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1.2rem;
+    width: 100px;
+    height: 30px;
+    font-size: 1rem;
+    color: black;
+    border-radius: 7px;
+    background-color: ${(props) => props.theme.adminButton};
+    font-weight: bold;
+    border-color: ${(props) => props.theme.adminButton};
     font-family: inherit;
   }
 `;

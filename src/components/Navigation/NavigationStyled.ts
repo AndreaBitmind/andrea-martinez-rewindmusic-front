@@ -5,17 +5,16 @@ export const NavigationStyled = styled.nav`
 
   .main-buttons {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 390px;
     padding-bottom: 15px;
     border-bottom: 1px solid black;
-    align-items: flex-end;
   }
 
   .navlink-upload {
     text-decoration: none;
     padding: 1.2rem;
-    width: 150px;
+    width: 100px;
     height: 30px;
     font-size: 1rem;
     color: black;
