@@ -30,10 +30,11 @@ const SongModifyForm = ({ song }: SongFormModifyProps): JSX.Element => {
   };
 
   const onSubmitData = async (event: SyntheticEvent) => {
+    debugger;
     event.preventDefault();
-
+    debugger;
     formData.append("song", JSON.stringify({ ...songEdit }));
-
+    debugger;
     await modifySong(formData, id as string);
     setSongEdit(song);
     formData = new FormData();
@@ -130,7 +131,6 @@ const SongModifyForm = ({ song }: SongFormModifyProps): JSX.Element => {
           id="image"
           placeholder="Album picture"
           onChange={onChangeFile}
-          value={songEdit.image}
         />
         <Button className="submit-big" type="submit" buttonText="Upload song" />
       </form>
