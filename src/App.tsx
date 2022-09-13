@@ -8,7 +8,6 @@ import {
 import { ThemeProvider } from "styled-components";
 import { Header } from "./components/Header/Header";
 import SongListPage from "./pages/SongListPage/SongListPage";
-
 import LoginPage from "./pages/LoginPage/LoginPage";
 import NotFoundErrorPage from "./pages/NotFoundPage/NotFoundPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
