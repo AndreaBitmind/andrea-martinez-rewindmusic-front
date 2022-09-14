@@ -57,13 +57,12 @@ const useUser = () => {
         `${apiURL}users/login`,
         userData
       );
-      if (token) {
-        const userInfo: RegisteredUse = decodeToken(token);
-        localStorage.setItem("token", token);
-        dispatch(loginUsersActionCreator(userInfo));
-        navigate("/songs");
-        return;
-      }
+
+      const userInfo: RegisteredUse = decodeToken(token);
+      localStorage.setItem("token", token);
+      dispatch(loginUsersActionCreator(userInfo));
+      navigate("/songs");
+      return;
     } catch (error: any) {
       errorModal("Oops! Something went wrong, try again...");
       return error.message;
