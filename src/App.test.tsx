@@ -10,7 +10,24 @@ jest.mock("react-redux", () => ({
   useDispatch: () => mockDispatch,
 }));
 
+const mockNavigate = jest.fn();
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockNavigate,
+}));
+
 describe("Given a App component", () => {
+  const mockLocalStorage = {
+    setItem: jest.fn(),
+    getItem: jest.fn(),
+    removeItem: jest.fn(),
+    clear: jest.fn(),
+    length: 1,
+    key: jest.fn(),
+  };
+  beforeAll(() => {
+    window.localStorage = mockLocalStorage;
+  });
   describe("When it's instantiated", () => {
     test("Then it get the token to localStorage", () => {
       const mockToken =
@@ -26,6 +43,20 @@ describe("Given a App component", () => {
       );
 
       expect(mockDispatch).toHaveBeenCalled();
+    });
+
+    test("If there is no token, then navigate", () => {
+      window.localStorage.removeItem("token");
+
+      render(
+        <Provider store={store}>
+          <BrowserRouter>
+            <App />,
+          </BrowserRouter>
+        </Provider>
+      );
+
+      expect(mockNavigate).toHaveBeenCalled();
     });
   });
 });
