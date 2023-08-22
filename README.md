@@ -1,6 +1,38 @@
 # REWIND MUSIC APP
 
-This is a React application project that implements a CRUD (Create, Read, Update, Delete) functionality for managing a list of songs. Registered users can view the list of songs, add new songs, update existing ones, and delete songs. Below are the project features and the packages used:
+Welcome to the Rewind Music App, a comprehensive project that showcases a robust CRUD (Create, Read, Update, Delete) functionality for efficiently managing and organizing a diverse collection of songs. This application empowers registered users to seamlessly interact with their music library, granting them the ability to explore, personalize, and maintain their songs effortlessly.
+<br>
+<br>
+
+## Table of contents
+- [Screenshots](#screenshots)
+- [Features](#features)
+- [Used packages](#used-packages)
+- [Management Scripts](#management-scripts)
+- [Folder Structure](#folder-structure)
+- [Metrics](#metrics)
+- [How can you run this project](#how-can-you-run-this-project)
+<br>
+
+## Screenshots
+
+<img src="https://github.com/AndreaBitmind/andrea-martinez-rewindmusic-front/blob/871ee800872eb646e454774be8291cbe79b2293a/login.png?raw=true" alt="sign in view from mobile breakpoint" width="300"/> <img src="https://github.com/AndreaBitmind/andrea-martinez-rewindmusic-front/blob/871ee800872eb646e454774be8291cbe79b2293a/register.png?raw=true" alt="create an account view from mobile breakpoint" width="300"/>
+<br>
+View of account creation and sign in page.
+<br>
+<br>
+<img src="https://github.com/AndreaBitmind/andrea-martinez-rewindmusic-front/blob/871ee800872eb646e454774be8291cbe79b2293a/listado.png?raw=true" alt="list of songs view from mobile breakpoint" width="300"/> <img src="https://github.com/AndreaBitmind/andrea-martinez-rewindmusic-front/blob/871ee800872eb646e454774be8291cbe79b2293a/subir.png?raw=true" alt="upload songs view from mobile breakpoint" width="300"/>
+<br>
+View of song list and upload a song page
+<br>
+<br>
+<img src="https://github.com/AndreaBitmind/andrea-martinez-rewindmusic-front/blob/871ee800872eb646e454774be8291cbe79b2293a/detalle.png?raw=true" alt="song details view from mobile breakpoint" width="300"/> <img src="https://github.com/AndreaBitmind/andrea-martinez-rewindmusic-front/blob/871ee800872eb646e454774be8291cbe79b2293a/modificar.png?raw=true" alt="modify your song view from mobile breakpoint" width="300"/>
+<br>
+View of song details and modify the song page
+<br>
+<br>
+
+
 
 ## Features:
 
@@ -14,7 +46,10 @@ This is a React application project that implements a CRUD (Create, Read, Update
 - Style components using Styled Components.
 - Manage notifications with React Toastify.
 - Integration of unit tests with Jest and Testing Library.
+  
+  <br>
 
+  
 ## Used Packages
 
 - **@fontsource/overpass**: Font used for the interface.
@@ -36,6 +71,8 @@ This is a React application project that implements a CRUD (Create, Read, Update
 - **husky**: Integrates Git hooks to automate tasks before commits.
 - **@types/styled-components**: Type definitions for Styled Components.
 - **msw**: Library for mocking API calls in tests.
+<br>
+
 
 ## Management Scripts
 
@@ -43,11 +80,13 @@ This is a React application project that implements a CRUD (Create, Read, Update
 - `build`: Generates a production version of the project.
 - `test`: Runs unit tests.
 - `test-coverage`: Runs unit tests and generates a coverage report.
+<br>
+
 
 ## Folder Structure
 
 The folder structure follows a component-based organization, separating pages, Redux logic, API services, styles, and utilities.
-
+```bash
 ├── .github
 ├── .husky
 ├── coverage
@@ -77,10 +116,28 @@ The folder structure follows a component-based organization, separating pages, R
     ├── store
     ├── utils
     └── App.tsx
-
+```
+<br>
 
 ## Metrics
 
 📈 [Back SonarCloud metrics](https://sonarcloud.io/summary/new_code?id=isdi-coders-2022_Andrea-Martinez_Back-Final-Project-202207-BCN) - 100% coverage
 
 📈 [Front SonarCloud metrics](https://sonarcloud.io/summary/new_code?id=isdi-coders-2022_Andrea-Martinez_Front-Final-Project-202207-BCN) - 100% coverage
+
+<br>
+
+## How can you run this project
+
+- Once you've download or cloned the project, install it with:
+
+  ```bash
+  npm install
+  ```
+
+- After that, if you want to run it in local execute this command:
+  ```bash
+  npm start
+  ```
+
+<br>
