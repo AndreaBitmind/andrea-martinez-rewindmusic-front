@@ -1,4 +1,4 @@
-# RewindMusic APP Front
+# RewindMusic APP Frontend
 
 Welcome to the RewindMusic App, a comprehensive project that showcases a robust CRUD (Create, Read, Update, Delete) functionality for efficiently managing and organizing a diverse collection of songs. This application empowers registered users to seamlessly interact with their music library, granting them the ability to explore, personalize, and maintain their songs effortlessly.
 <br>
