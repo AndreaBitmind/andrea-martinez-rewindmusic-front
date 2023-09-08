@@ -16,7 +16,7 @@ jest.mock("../../hooks/useApi/useApi", () => () => mockUseApi);
 
 describe("Given a form component", () => {
   describe("When instantiated", () => {
-    test("Then it should display a form with a title, two inputs and a button", () => {
+    test("Then it should display a form with a title, 6 inputs and a button", () => {
       render(
         <Provider store={store}>
           <BrowserRouter>
@@ -61,9 +61,8 @@ describe("Given a form component", () => {
       await waitFor(() => expect(useState).toHaveBeenCalled());
     });
 
-    test("And when the user submit the form", async () => {
+    test("And when the user click the button, it should submit the form", async () => {
       const useState = jest.spyOn(React, "useState");
-
       render(<SongCreateForm />, { wrapper: Wrapper });
 
       const buttonSubmit = screen.getByRole("button");
