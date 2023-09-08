@@ -1,46 +1,148 @@
-# Getting Started with Create React App
+# RewindMusic APP Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
+Welcome to the RewindMusic App, a comprehensive project that showcases a robust CRUD (Create, Read, Update, Delete) functionality for efficiently managing and organizing a diverse collection of songs. This application empowers registered users to seamlessly interact with their music library, granting them the ability to explore, personalize, and maintain their songs effortlessly.
 
-## Available Scripts
+Visit https://amrtinz-final-project-2022-bcn.netlify.app/ to run this project online.
+<br>
+<br>
 
-In the project directory, you can run:
+## Table of contents
 
-### `npm start`
+- [Screenshots](#screenshots)
+- [Features](#features)
+- [Used packages](#used-packages)
+- [Management Scripts](#management-scripts)
+- [Folder Structure](#folder-structure)
+- [Metrics](#metrics)
+- [How can you run this project locally](#how-can-you-run-this-project-locally)
+  <br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Screenshots
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<img src="https://github.com/AndreaBitmind/andrea-martinez-rewindmusic-front/blob/871ee800872eb646e454774be8291cbe79b2293a/login.png?raw=true" alt="sign in view from mobile breakpoint" width="300"/> <img src="https://github.com/AndreaBitmind/andrea-martinez-rewindmusic-front/blob/871ee800872eb646e454774be8291cbe79b2293a/register.png?raw=true" alt="create an account view from mobile breakpoint" width="300"/>
+<br>
+View of account creation and sign in page.
+<br>
+<br>
+<img src="https://github.com/AndreaBitmind/andrea-martinez-rewindmusic-front/blob/871ee800872eb646e454774be8291cbe79b2293a/listado.png?raw=true" alt="list of songs view from mobile breakpoint" width="300"/> <img src="https://github.com/AndreaBitmind/andrea-martinez-rewindmusic-front/blob/871ee800872eb646e454774be8291cbe79b2293a/subir.png?raw=true" alt="upload songs view from mobile breakpoint" width="300"/>
+<br>
+View of song list and upload a song page
+<br>
+<br>
+<img src="https://github.com/AndreaBitmind/andrea-martinez-rewindmusic-front/blob/871ee800872eb646e454774be8291cbe79b2293a/detalle.png?raw=true" alt="song details view from mobile breakpoint" width="300"/> <img src="https://github.com/AndreaBitmind/andrea-martinez-rewindmusic-front/blob/871ee800872eb646e454774be8291cbe79b2293a/modificar.png?raw=true" alt="modify your song view from mobile breakpoint" width="300"/>
+<br>
+View of song details and modify the song page
+<br>
+<br>
 
-### `npm test`
+## Features:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Display a list of songs.
+- User registration to access CRUD functionalities.
+- Add new songs to the list.
+- Modify details of existing songs.
+- Delete songs from the list.
+- Utilize Redux for efficient state management.
+- Use React Router for navigation between different views.
+- Style components using Styled Components.
+- Manage notifications with React Toastify.
+- Integration of unit tests with Jest and Testing Library.
 
-### `npm run build`
+  <br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Used Packages
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **@fontsource/overpass**: Font used for the interface.
+- **@reduxjs/toolkit**: Used for efficient state management.
+- **axios**: Library for making HTTP requests.
+- **jwt-decode**: Decodes JWT tokens to obtain user information.
+- **react**: Core React library.
+- **react-dom**: React renderer for the browser.
+- **react-icons**: Popular icons for visual components.
+- **react-redux**: Integration of Redux with React.
+- **react-router-dom**: React routing for view navigation.
+- **react-scripts**: Set of preconfigured scripts for React projects.
+- **react-toastify**: Displays attractive notifications in the interface.
+- **styled-components**: Library for styling components using CSS in JS.
+- **typescript**: Typed programming language.
+- **web-vitals**: Library for measuring web performance metrics.
+- **@testing-library/jest-dom**, **@testing-library/react**, **@testing-library/user-event**: Used for writing unit tests.
+- **@types/jest**, **@types/node**, **@types/react**, **@types/react-dom**, **@types/react-router-dom**: Type definitions for development environments.
+- **husky**: Integrates Git hooks to automate tasks before commits.
+- **@types/styled-components**: Type definitions for Styled Components.
+- **msw**: Library for mocking API calls in tests.
+  <br>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Management Scripts
 
-### `npm run eject`
+- `start`: Launches the application in development mode.
+- `build`: Generates a production version of the project.
+- `test`: Runs unit tests.
+- `test-coverage`: Runs unit tests and generates a coverage report.
+  <br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Folder Structure
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The folder structure follows a component-based organization, separating pages, Redux logic, API services, styles, and utilities.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+├── .github
+├── .husky
+├── coverage
+├── README.md
+├── .gitignore
+├── node_modules
+├── package-lock.json
+├── package.json
+├── public
+└── src
+    ├── assets
+    │   └── images
+    ├── components
+    |   └── Button
+    │       ├── Button.test.tsx
+    │       ├── Button.tsx
+    │       └── ButtonStyled.ts
+    ├── hooks
+        └── useAPI
+        └── useUser
+    ├── interfaces
+    ├── mocks
+    ├── pages
+    |   └── LoginPage
+    │       ├── LoginPage.test.tsx
+    │       └── LoginPage.tsx
+    ├── store
+    ├── utils
+    └── App.tsx
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<br>
 
-## Learn More
+## Metrics
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+📈 [Back SonarCloud metrics](https://sonarcloud.io/summary/new_code?id=isdi-coders-2022_Andrea-Martinez_Back-Final-Project-202207-BCN) - 100% coverage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+📈 [Front SonarCloud metrics](https://sonarcloud.io/summary/new_code?id=isdi-coders-2022_Andrea-Martinez_Front-Final-Project-202207-BCN) - 100% coverage
+
+<br>
+
+## How can you run this project locally
+
+First of all, in order to start this project it is necessary to:
+
+- Download the .env.example (delete the .example) to get the API path for the backend.
+- Download and run the Backend. You can find it [here](https://github.com/AndreaBitmind/andrea-martinez-rewindmusic-back).
+
+- Once you've cloned this Frontend project, install it with:
+
+  ```bash
+  npm install
+  ```
+
+- After that, execute this command:
+  ```bash
+  npm start
+  ```
+
+<br>
